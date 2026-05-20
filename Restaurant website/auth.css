@@ -1,0 +1,338 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    /* background-color: #121212;  */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Auth split screen viewport container */
+.auth-container {
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   LEFT PANEL - BRANDING SIDEBAR (FOOD BACKGROUND & OVERLAY)
+   ========================================================================== */
+.brand-panel {
+    flex: 1;
+    background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1000&q=80');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 50px;
+    color: white;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(18, 18, 18, 0.9) 0%, rgba(35, 25, 15, 0.7) 100%);
+    z-index: 1;
+}
+
+.brand-content {
+    position: relative;
+    z-index: 5;
+    max-width: 400px;
+}
+
+.brand-content h1 {
+    font-size: 2.4rem;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+    color: #f3b246; /* Matching your brand's golden-orange palette exactly */
+}
+
+.brand-content h2 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    opacity: 0.95;
+    margin-bottom: 25px;
+    line-height: 1.3;
+}
+
+.brand-content .testimonial {
+    font-size: 1rem;
+    font-style: italic;
+    opacity: 0.85;
+    border-left: 3px solid #f3b246;
+    padding-left: 15px;
+    line-height: 1.5;
+}
+
+.brand-content .testimonial span {
+    font-weight: bold;
+    font-style: normal;
+    color: #f3b246;
+}
+
+/* ==========================================================================
+   RIGHT PANEL - FORM WRAPPER
+   ========================================================================== */
+.form-panel {
+    flex: 1.1;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 40px;
+}
+
+.form-wrapper {
+    width: 100%;
+    max-width: 440px;
+}
+
+.form-header h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 4px;
+}
+
+.form-header .subtitle {
+    color: #6b7280;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+/* Social Buttons */
+.social-auth {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.btn-social {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #e5e7eb;
+    border-radius: 50px;
+    background: #ffffff;
+    color: #374151;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-social:hover {
+    background: #f9fafb;
+    border-color: #d1d5db;
+}
+
+/* Divider Line */
+.divider {
+    text-align: center;
+    position: relative;
+    margin: 20px 0;
+}
+
+.divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #e5e7eb;
+    z-index: 1;
+}
+
+.divider span {
+    background: #ffffff;
+    padding: 0 12px;
+    color: #9ca3af;
+    font-size: 0.85rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* Layout Assemblies */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 12px;
+}
+
+.flex-column-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.full-width {
+    grid-column: span 2;
+}
+
+/* Floating Form Control Fields */
+.input-group {
+    position: relative;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    color: #111827;
+    background-color: #f9fafb;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.input-group label {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    font-size: 0.95rem;
+    pointer-events: none;
+    transition: all 0.2s ease;
+}
+
+/* Input Focus States using the clean brand palette */
+.input-group input:focus,
+.input-group input:not(:placeholder-shown) {
+    background-color: #ffffff;
+    border-color: #f3b246;
+    padding-top: 18px;
+    padding-bottom: 6px;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: 10px;
+    font-size: 0.75rem;
+    color: #f3b246;
+}
+
+/* Password eye icons toggles */
+.password-group input {
+    padding-right: 40px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #9ca3af;
+    font-size: 1.05rem;
+    z-index: 10;
+    padding: 4px;
+}
+
+.toggle-password:hover {
+    color: #f3b246;
+}
+
+.password-group input:focus ~ .toggle-password,
+.password-group input:not(:placeholder-shown) ~ .toggle-password {
+    top: calc(50% + 4px);
+}
+
+/* Main CTA Button styled to perfectly match "View Menu" color */
+.btn-submit {
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+    background-color: #f3b246;
+    border: none;
+    color: #121212; /* Dark high-contrast text on gold button background */
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(243, 178, 70, 0.2);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.btn-submit:hover {
+    background-color: #e09f35;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(243, 178, 70, 0.35);
+}
+
+.switch {
+    margin-top: 18px;
+    font-size: 0.9rem;
+    text-align: center;
+    color: #6b7280;
+}
+
+.switch a {
+    color: #e09f35;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.switch a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA LAYER
+   ========================================================================== */
+@media (max-width: 900px) {
+    body {
+        background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1000&q=80');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    .auth-container {
+        box-shadow: none;
+        background: transparent;
+        justify-content: center;
+    }
+
+    .brand-panel {
+        display: none; 
+    }
+
+    .form-panel {
+        flex: none;
+        width: 100%;
+        max-width: 480px;
+        background: rgba(255, 255, 255, 0.97); 
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        padding: 35px 25px;
+    }
+    
+    .divider span {
+        background: rgba(255, 255, 255, 0.97); 
+    }
+}

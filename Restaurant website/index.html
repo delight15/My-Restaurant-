@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Restaurant</title>
+    <link rel="stylesheet" href="index.css">
+    <!-- <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css"> -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/OOAD5V0.jpg">
+</head>
+<body>
+    <div class="background-video">
+        <video autoplay muted loop playsinline>
+            <source src="images/4427-178783043.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <div class="overlay"></div>
+        
+        <header class="navbar">
+            <div class="logo">
+                <img src="images/OOAD5V0.jpg" alt="Restaurant logo">
+            </div>
+            <nav class="nav-links" id="nav-links">
+                <i id="close" class="fa fa-times fa-2x" aria-hidden="true" onclick="closenavlink()"></i>
+                <ul>
+                    <div class="responsive">
+
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <!-- <li><a href="profile.html">Profile</a></li> -->
+                    </div>
+                </ul>
+            </nav>
+            <ul class="other-nav">
+                <li><a href="cart.html"><i class="fa-solid fa-cart-shopping" aria-hidden="true"><sup id="cart-number"></sup></i></a></li>
+                <li><a href="profile.html"><i class="fa-solid fa-user" aria-hidden="true"></i></a></li>
+                <li><a href="#search"><i class="fa-solid fa-search" aria-hidden="true"></i></a></li>
+                <i id="open" class="fa-solid fa-bars" aria-hidden="true" onclick="shownavlink()"></i>
+            </ul>
+        </header>
+
+        <section class="hero-content">
+            <h1>Welcome to Our Restaurant</h1>
+            <p>Fresh flavors, cozy atmosphere, and unforgettable dining.</p>
+            <a class="hero-button" href="menu.html">View Menu</a>
+        </section>
+    </div>
+        
+
+    <section class="meals">
+        <p>Our Top Selling Dishes</p>
+        <div class="foods">
+            <div class="each-foods">
+                <div class="image">
+                    <img src="images/1778745707804.png" alt="" class="images">
+                </div>
+                <span class="food-name">Spicy asian fried chicken with rice</span>
+                <div class="addtocart">
+                    <strong style="color: black;font-size: 1.5rem;">Price:</strong>
+                    <span class="price">₦7000</span>
+                    <button class="add-btn"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+            <div class="each-foods">
+                <div class="image">
+                    <img src="images/1778745912303.png" alt="" class="images">
+                </div>
+                <span class="food-name">Potato curry with rice on black plate</span>
+                <div class="addtocart">
+                    <strong style="color: black;font-size: 1.5rem;">Price:</strong>
+                    <span class="price">₦7000</span>
+                    <button class="add-btn"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+            <div class="each-foods">
+                <div class="image">
+                    <img src="images/1778746005776.png" alt="" class="images">
+                </div>
+                <span class="food-name">General tsos chicken with rice</span>
+                <div class="addtocart">
+                    <strong style="color: black;font-size: 1.5rem;">Price:</strong>
+                    <span class="price">₦7000</span>
+                    <button class="add-btn"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+            <div class="each-foods">
+                <div class="image">
+                    <img src="images/05d77e39-fa13-489f-be6c-a0a5bea02ca6.jpeg" alt="" class="images">
+                </div>
+                <span class="food-name">Jollof Rice and Chicken</span>
+                <div class="addtocart">
+                    <strong style="color: black;font-size: 1.5rem;">Price:</strong>
+                    <span class="price">₦7000</span>
+                    <button class="add-btn"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+            <div class="each-foods">
+                <div class="image">
+                    <img src="images/122949bf-f335-46c6-9a82-0b933f4fbe24.jpeg" alt="" class="images">
+                </div>
+                <span class="food-name">Spaghetti and Egg</span>
+                <div class="addtocart">
+                    <strong style="color: black;font-size: 1.5rem;">Price:</strong>
+                    <span class="price">₦7000</span>
+                    <button class="add-btn"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+            <div class="each-foods">
+                <div class="image">
+                    <img src="images/34248a70-a7fd-4939-8b02-9c1c33c16fbc.jpeg" alt="" class="images">
+                </div>
+                <span class="food-name">White Rice and Fish Sauce</span>
+                <div class="addtocart">
+                    <strong style="color: black;font-size: 1.5rem;">Price:</strong>
+                    <span class="price">₦7000</span>
+                    <button class="add-btn"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+            <div class="each-foods">
+                <div class="image">
+                    <img src="images/2c991987-29d0-4d69-9ab2-da58f62dd1b0.jpeg" alt="" class="images">
+                </div>
+                <span class="food-name">Round Doughnuts with chocolate</span>
+                <div class="addtocart">
+                    <strong style="color: black;font-size: 1.5rem;">Price:</strong>
+                    <span class="price">₦7000</span>
+                    <button class="add-btn"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+            <div class="each-foods">
+                <div class="image">
+                    <img src="images/39841c5d-a427-47ba-981b-5470b741f20d.jpeg" alt="" class="images">
+                </div>
+                <span class="food-name">Beef and Carrot</span>
+                <div class="addtocart">
+                    <strong style="color: black;font-size: 1.5rem;">Price:</strong>
+                    <span class="price">₦7000</span>
+                    <button class="add-btn"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+            <div class="each-foods">
+                <div class="image">
+                    <img src="images/1778746005776.png" alt="" class="images">
+                </div>
+                <span class="food-name">General tsos chicken with rice</span>
+                <div class="addtocart">
+                    <strong style="color: black;font-size: 1.5rem;">Price:</strong>
+                    <span class="price">₦7000</span>
+                    <button class="add-btn"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+        </div><br><br><br>
+
+
+
+         <!-- <p>Meals For You</p>
+        <div class="foods">
+            <div class="each-foods">
+                <div class="image">
+                    <img src="images/1778745707804.png" alt="" class="images">
+                </div>
+                <span class="food-name">Spicy asian fried chicken with rice</span>
+                <div class="addtocart">
+                    <strong style="color: black;font-size: 1.5rem;">Price:</strong>
+                    <span class="price">₦7000</span>
+                    <button class="add-btn"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+            <div class="each-foods">
+                <div class="image">
+                    <img src="images/1778745912303.png" alt="" class="images">
+                </div>
+                <span class="food-name">Potato curry with rice on black plate</span>
+                <div class="addtocart">
+                    <strong style="color: black;font-size: 1.5rem;">Price:</strong>
+                    <span class="price">₦7000</span>
+                    <button class="add-btn"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+            <div class="each-foods">
+                <div class="image">
+                    <img src="images/1778746005776.png" alt="" class="images">
+                </div>
+                <span class="food-name">General tsos chicken with rice</span>
+                <div class="addtocart">
+                    <strong style="color: black;font-size: 1.5rem;">Price:</strong>
+                    <span class="price">₦7000</span>
+                    <button class="add-btn"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+            <div class="each-foods">
+                <div class="image">
+                    <img src="images/1778746005776.png" alt="" class="images">
+                </div>
+                <span class="food-name">General tsos chicken with rice</span>
+                <div class="addtocart">
+                    <strong style="color: black;font-size: 1.5rem;">Price:</strong>
+                    <span class="price">₦7000</span>
+                    <button class="add-btn"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+            <div class="each-foods">
+                <div class="image">
+                    <img src="images/1778746005776.png" alt="" class="images">
+                </div>
+                <span class="food-name">General tsos chicken with rice</span>
+                <div class="addtocart">
+                    <strong style="color: black;font-size: 1.5rem;">Price:</strong>
+                    <span class="price">₦7000</span>
+                    <button class="add-btn"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+            <div class="each-foods">
+                <div class="image">
+                    <img src="images/1778746005776.png" alt=""> class="images"
+                </div>
+                <span class="food-name">General tsos chicken with rice</span>
+                <div class="addtocart">
+                    <strong style="color: black;font-size: 1.5rem;">Price:</strong>
+                    <span class="price">₦7000</span>
+                    <button class="add-btn"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+            <div class="each-foods">
+                <div class="image">
+                    <img src="images/1778746005776.png" alt="" class="images">
+                </div>
+                <span class="food-name">General tsos chicken with rice</span>
+                <div class="addtocart">
+                    <strong style="color: black;font-size: 1.5rem;">Price:</strong>
+                    <span class="price">₦7000</span>
+                    <button class="add-btn"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+            <div class="each-foods">
+                <div class="image">
+                    <img src="images/1778746005776.png" alt="" class="images">
+                </div>
+                <span class="food-name">General tsos chicken with rice</span>
+                <div class="addtocart">
+                    <strong style="color: black;font-size: 1.5rem;">Price:</strong>
+                    <span class="price">₦7000</span>
+                    <button class="add-btn"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+            <div class="each-foods">
+                <div class="image">
+                    <img src="images/1778746005776.png" alt="" class="images">
+                </div>
+                <span class="food-name">General tsos chicken with rice</span>
+                <div class="addtocart">
+                    <strong style="color: black;font-size: 1.5rem;">Price:</strong>
+                    <span class="price">₦7000</span>
+                    <button class="add-btn"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+        </div> -->
+    </section>
+    <div id="overlay2" onclick="closenavlink()"></div>
+
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>Dumnamene Fyneface</h3>
+                        <p>Full Stack Web Developer crafting modern, responsive websites for real impact.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#skills">Skills</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Follow Me</h4>
+                        <div class="footer-social">
+                            <a href="#"><i style="color: #f9c74f;" class="fa fa-instagram"></i></a>
+                            <a href="#"><i style="color: #f9c74f;" class="fa fa-facebook"></i></a>
+                            <a href="#"><i style="color: #f9c74f;" class="fa fa-twitter"></i></a>
+                            <a href="https://github.com/delight15"><i style="color: #f9c74f;" class="fa fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Contact</h4>
+                        <p>Email: dumnamenefyneface@gmail.com</p>
+                        <p>Phone: +234 814 562 8461</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p style="color: white;">&copy; 2024 Dumnamene Fyneface. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+</body>
+ <script>
+    let navlinks = document.getElementById('nav-links');
+    const navbar = document.querySelector('.navbar');
+
+    function shownavlink(){
+        navlinks.classList.toggle('show');
+        document.body.classList.toggle('nav-open');
+    }
+    function closenavlink(){
+        navlinks.classList.remove('show');
+        document.body.classList.remove('nav-open');
+    }
+
+    function updateNavbarOnScroll() {
+        const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        const threshold = window.innerWidth <= 700 ? 1 : 20;
+        if (scrollPercent >= threshold) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    }
+ const cartButtons = document.querySelectorAll(".add-btn");
+
+const cartNumber = document.getElementById("cart-number");
+
+
+// UPDATE CART NUMBER
+
+    // if(cartNumber.innerText == 0){
+    //     cartNumber.style.visibility = "hidden"
+    // }else{
+    //     cartNumber.style.visibility = "visible"
+    // }
+
+
+    function updateCartNumber() {
+        
+        
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+        if(cartNumber){
+            cartNumber.innerText = cart.length;
+        }
+        console.log(cart.length)
+    }
+    
+    window.addEventListener("storage", function(){
+        updateCartNumber();
+    });
+
+    window.addEventListener("storage", function (){
+        updateCartNumber();
+    });
+
+// updateCartNumber();
+
+cartButtons.forEach(button => {
+
+    button.addEventListener("click", function () {
+
+        const product = button.closest(".each-foods");
+
+        const image = product.querySelector(".images").src;
+        const name = product.querySelector(".food-name").innerText;
+        const price = product.querySelector(".price").innerText;
+
+        // const newprice = price.parseFloat("₦","");
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        // check if item already exists
+        let existingItem = cart.find(item => item.name === name);
+
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({
+                image,
+                name,
+                price,
+                quantity: 1
+            });
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        updateCartNumber();
+
+        alert("Added To Cart");
+
+    });
+
+});
+
+// SHOW NUMBER WHEN PAGE LOADS
+updateCartNumber();
+
+
+    window.addEventListener('scroll', updateNavbarOnScroll);
+    window.addEventListener('resize', updateNavbarOnScroll);
+    updateNavbarOnScroll();
+
+    const bgVideo = document.querySelector('.background-video video');
+    if (bgVideo) {
+        bgVideo.playbackRate = 0.5; // slower speed, 1.0 is normal
+    }
+</script>
+</html>

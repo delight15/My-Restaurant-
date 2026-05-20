@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Welcome Back</title>
+    <link rel="stylesheet" href="auth.css">
+    <link rel="shortcut icon" href="images/OOAD5V0.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="auth-container">
+    
+    <div class="brand-panel">
+        <div class="image-overlay"></div>
+        <div class="brand-content">
+            <h1>WELCOME BACK!</h1>
+            <h2>Your favorite dishes are waiting.</h2>
+            <p class="testimonial">“The absolute best food experience in town. Ordering takes seconds!” — <span>Foodies Choice</span></p>
+        </div>
+    </div>
+
+    <div class="form-panel">
+        <div class="form-wrapper">
+            
+            <div class="form-header">
+                <h2>Welcome Back</h2>
+                <p class="subtitle">Log in to keep ordering your favorites</p>
+            </div>
+
+            <div class="social-auth">
+                <button class="btn-social google-btn">
+                    <i class="fa-brands fa-google"></i> Sign in with Google
+                </button>
+                <button class="btn-social apple-btn">
+                    <i class="fa-brands fa-apple"></i> Sign in with Apple
+                </button>
+            </div>
+
+            <div class="divider">
+                <span>or use email</span>
+            </div>
+
+            <div class="flex-column-stack">
+                <div class="input-group">
+                    <input type="email" id="email" placeholder=" " required>
+                    <label for="email">Email Address</label>
+                </div>
+
+                <div class="input-group password-group">
+                    <input type="password" id="password" placeholder=" " required>
+                    <label for="password">Password</label>
+                    <i class="fa-regular fa-eye toggle-password" onclick="togglePassword('password', this)"></i>
+                </div>
+            </div>
+
+            <button class="btn-submit" onclick="login()">Login</button>
+
+            <p class="switch">Don't have an account? <a href="signup.html">Sign Up</a></p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+// Function logic to dynamically toggle mask options for text protection
+function togglePassword(inputId, eyeIcon) {
+    const passwordInput = document.getElementById(inputId);
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        eyeIcon.classList.remove("fa-eye");
+        eyeIcon.classList.add("fa-eye-slash");
+    } else {
+        passwordInput.type = "password";
+        eyeIcon.classList.remove("fa-eye-slash");
+        eyeIcon.classList.add("fa-eye");
+    }
+}
+
+function login(){
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if (!email || !password) {
+        alert("Please enter both email and password.");
+        return;
+    }
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+    const user = users.find(u => u.email === email && u.password === password);
+
+    if(!user){
+        alert("Invalid email or password!");
+        return;
+    }
+
+    localStorage.setItem("currentUser", JSON.stringify(user));
+    alert("Login successful!");
+    window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>

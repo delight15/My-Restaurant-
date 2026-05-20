@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Menu</title>
+    <link rel="shortcut icon" href="images/OOAD5V0.jpg">
+    <!-- <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+    <div class="background-image">
+
+          <header class="navbar">
+            <div class="logo">
+                <img src="images/OOAD5V0.jpg" alt="Restaurant logo">
+            </div>
+            <nav class="nav-links" id="nav-links">
+                <i id="close" class="fa fa-times fa-2x" aria-hidden="true" onclick="closenavlink()"></i>
+                <ul>
+                    <div class="responsive">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html" class="active">Menu</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </div>
+                </ul>
+            </nav>
+            <ul class="other-nav" >
+                 <li><a href="cart.html"><i  class="fa-solid fa-cart-shopping" aria-hidden="true"><sup id="cart-number"></sup></i></a></li>
+                 <li><a href="profile.html"><i class="fa-solid fa-user" aria-hidden="true"></i></a></li>
+                <!-- <li><a href="search"><i class="fa-solid fa-search" aria-hidden="true"></i></a></li> -->
+                <i id="open" class="fa-solid fa-bars" aria-hidden="true" onclick="shownavlink()"></i>
+            </ul>
+        </header>
+        <div id="overlay2"></div>
+
+    <div class="content">
+        <h1>Our Menu</h1>
+        <div class="search">
+            <input type="text" placeholder="Search your favorite Meal">
+            <i class="fa fa-search" id="search"></i>
+        </div>
+    </div>
+</div><br><br><br>
+
+<div class="nav-navigation">
+    <div class="nav1"><a href="index.html">Home</a></div><span style="font-size: 1.3rem;">></span>
+    <div class="nav1"><a href="menu.html">Menu</a></div>
+</div>
+
+    <section class="meals-contents">
+        <p>Our Restaurant Menu's</p>
+        <div class="menu-categories">
+            <div class="each-menu">
+                <div class="menu-image">
+                    <img src="images/05d77e39-fa13-489f-be6c-a0a5bea02ca6.jpeg" alt="drinks" >
+                </div>
+                <h3>Lunch</h3>
+            </div>
+            <div class="each-menu">
+                <div class="menu-image">
+                    <img src="images/51fbb720-baf4-446e-8ed5-a4e418533980.jpeg" alt="drinks" >
+                </div>
+                <h3>Breakfast</h3>
+            </div>
+            <div class="each-menu">
+                <div class="menu-image">
+                    <img src="images/122949bf-f335-46c6-9a82-0b933f4fbe24.jpeg" alt="drinks" >
+                </div>
+                <h3>Dinner</h3>
+            </div>
+            <div class="each-menu">
+                <div class="menu-image">
+                    <img src="images/05362b68-6698-42fd-a945-7a5878018fb7.jpeg" alt="drinks" >
+                </div>
+                <h3>Drinks</h3>
+            </div>
+            <div class="each-menu">
+                <div class="menu-image">
+                    <img src="images/5194a72e-3176-4d95-a9c0-603171a151d9.jpeg" alt="drinks" >
+                </div>
+                <h3>Dessert</h3>
+            </div>
+        </div>
+
+        <p>Breakfasts</p>
+        <div class="breakfast-foods">
+            <div class="each-breakfast">
+                <div class="breakfast-image">
+                    <img src="images/Creamy shrimp pasta with chicken thighs🍲.jpeg" alt="" class="images">
+                </div>
+                <!-- <h4 class="food-name"></h4 > -->
+                <h4 class="food-description">Creamy Shrimp pasta with chicken thighs</h4>
+                <div class="price-section"> 
+                    <strong>Price:</strong><span class="price">₦5000</span>
+                    <button class="add-btn"><i  class="fa fa-cart-plus"></i>Add to Cart </button>
+                </div>
+            </div>
+            <div class="each-breakfast">
+                <div class="breakfast-image">
+                    <img src="images/e2735e7f-15b7-44e1-a98d-39cb8b1a26f0.jpeg" alt="" class="images">
+                </div>
+                <!-- <h4 class="food-name"> Rice</h4 > -->
+                <h4 class="food-description">StrawBerries bread and hotdog</h4>
+                <div class="price-section"> 
+                    <strong>Price:</strong><span class="price">₦3000</span>
+                    <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                </div>
+            </div>
+            <div class="each-breakfast">
+                <div class="breakfast-image">
+                    <img src="images/4f22139d-fb28-44c3-a50e-eeb6f820523a.jpeg" alt="" class="images">
+                </div>
+                <!-- <h4 class="food-name"> Rice</h4 > -->
+                <h4 class="food-description">Hot and tasty hamburger</h4>
+                <div class="price-section"> 
+                    <strong>Price:</strong><span class="price">₦2500</span>
+                    <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                </div>
+            </div>
+            <div class="each-breakfast">
+                <div class="breakfast-image">
+                    <img src="images/9c0bdb43-b003-4418-8c05-8700445e7d85.jpeg" alt="" class="images">
+                </div>
+                <!-- <h4 class="food-name"> Rice</h4 > -->
+                <h4 class="food-description">Indomie and Scrambled eggs</h4>
+                <div class="price-section"> 
+                    <strong>Price:</strong><span class="price">₦4000</span>
+                    <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                </div>
+            </div>
+            <div class="each-breakfast">
+                <div class="breakfast-image">
+                    <img src="images/51fbb720-baf4-446e-8ed5-a4e418533980.jpeg" alt="" class="images">
+                </div>
+                <!-- <h4 class="food-name"> Rice</h4 > -->
+                <h4 class="food-description">Scrambled eggs with Tea</h4>
+                <div class="price-section"> 
+                    <strong>Price:</strong><span class="price">₦3500</span>
+                    <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                </div>
+            </div>
+            <div class="each-breakfast">
+                <div class="breakfast-image">
+                    <img src="images/b0879b8a-89d2-43c6-b460-2b887fc5fe5b.jpeg" alt="" class="images">
+                </div>
+                <!-- <h4 class="food-name"> Rice</h4 > -->
+                <h4 class="food-description">Hot and Tasty Burrito's</h4>
+                <div class="price-section"> 
+                    <strong>Price:</strong><span class="price">₦2700</span>
+                    <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                </div>
+            </div>
+           
+        </div>
+
+            <p>Lunch</p>
+            <div class="breakfast-foods">
+                <div class="each-breakfast">
+                    <div class="breakfast-image">
+                        <img src="images/b294210b-cd61-45e0-b374-89925910d396.jpeg" alt="" class="images">
+                    </div>
+                    <!-- <h4 class="food-name"> Rice</h4 > -->
+                    <h4 class="food-description">Fried Tasty Chicken</h4>
+                    <div class="price-section"> 
+                        <strong>Price:</strong><span class="price">₦9000</span>
+                        <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                    </div>
+                </div>
+                <div class="each-breakfast">
+                    <div class="breakfast-image">
+                        <img src="images/Beans and plantain.jpeg" alt="" class="images">
+                    </div>
+                    <!-- <h4 class="food-name"> Rice</h4 > -->
+                    <h4 class="food-description">Beans and plantain</h4>
+                    <div class="price-section"> 
+                        <strong>Price:</strong><span class="price">₦6000</span>
+                        <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                    </div>
+                </div>
+                <div class="each-breakfast">
+                    <div class="breakfast-image">
+                        <img src="images/d9a7265f-4116-4ad7-b7dc-32bd919d1af0.jpeg" alt="" class="images">
+                    </div>
+                    <!-- <h4 class="food-name"> Rice</h4 > -->
+                    <h4 class="food-description">Meat ball spaghetti</h4>
+                    <div class="price-section"> 
+                        <strong>Price:</strong><span class="price">₦7000</span>
+                        <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                    </div>
+                </div>
+                <div class="each-breakfast">
+                    <div class="breakfast-image">
+                        <img src="images/Native Soup.jpeg" alt="" class="images">
+                    </div>
+                    <!-- <h4 class="food-name"> Rice</h4 > -->
+                    <h4 class="food-description">Native Soup</h4>
+                    <div class="price-section"> 
+                        <strong>Price:</strong><span class="price">₦8000</span>
+                        <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                    </div>
+                </div>
+                <div class="each-breakfast">
+                    <div class="breakfast-image">
+                        <img src="images/LIST OF MY TOP 10 FAVORITE NIGERIAN FOODS - Food.jpeg" alt="" class="images">
+                    </div>
+                    <!-- <h4 class="food-name"> Rice</h4 > -->
+                    <h4 class="food-description">Egusi Soup with Fufu</h4>
+                    <div class="price-section"> 
+                        <strong>Price:</strong><span class="price">₦8000</span>
+                        <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                    </div>
+                </div>
+                <div class="each-breakfast">
+                    <div class="breakfast-image">
+                        <img src="images/This Homemade Beef Chow Mein Is Better Than Takeout.jpeg" alt="" class="images">
+                    </div>
+                    <!-- <h4 class="food-name"> Rice</h4 > -->
+                    <h4 class="food-description">Spaghetti with Beef</h4>
+                    <div class="price-section"> 
+                        <strong>Price:</strong><span class="price">₦6000</span>
+                        <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                    </div>
+                </div>
+                <div class="each-breakfast">
+                    <div class="breakfast-image">
+                        <img src="images/veggies noddles with sausage 🍜.jpeg" alt="" class="images">
+                    </div>
+                    <!-- <h4 class="food-name"> Rice</h4 > -->
+                    <h4 class="food-description">Veggies Noodles wiht sauce</h4>
+                    <div class="price-section"> 
+                        <strong>Price:</strong><span class="price">₦4000</span>
+                        <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                    </div>
+                </div>
+                <div class="each-breakfast">
+                    <div class="breakfast-image">
+                        <img src="images/This Homemade Beef Chow Mein Is Better Than Takeout.jpeg" alt="" class="images"> 
+                    </div>
+                    <!-- <h4 class="food-name"> Rice</h4 > -->
+                    <h4 class="food-description">Beef Chow Mein</h4>
+                    <div class="price-section"> 
+                        <strong>Price:</strong><span class="price">₦5000</span>
+                        <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                    </div>
+                </div>
+                <div class="each-breakfast">
+                    <div class="breakfast-image">
+                        <img src="images/Fried Rice with ingredient drop.jpeg" alt="" class="images">
+                    </div>
+                    <!-- <h4 class="food-name"> Rice</h4 > -->
+                    <h4 class="food-description">Fried rice with ingredient drops</h4>
+                    <div class="price-section"> 
+                        <strong>Price:</strong><span class="price">₦9000</span>
+                        <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                    </div>
+                </div>
+            </div>
+
+            <p>Dinner</p>
+               <div class="breakfast-foods">
+                <div class="each-breakfast">
+                    <div class="breakfast-image">
+                        <img src="images/f6a08a7c-44dc-49f8-8270-c0f14fc4cded.jpeg" alt="" class="images">
+                    </div>
+                    <!-- <h4 class="food-name"> Rice</h4 > -->
+                    <h4 class="food-description">Grilled tasty Beefs</h4>
+                    <div class="price-section"> 
+                        <strong>Price:</strong><span class="price">₦8000</span>
+                        <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                    </div>
+                </div>
+                <div class="each-breakfast">
+                    <div class="breakfast-image">
+                        <img src="images/Hot Honey Grilled Chicken Skewers - Cooking With Fire.jpeg" alt="" class="images">
+                    </div>
+                    <!-- <h4 class="food-name"> Rice</h4 > -->
+                    <h4 class="food-description">Grilled Chicken</h4>
+                    <div class="price-section"> 
+                        <strong>Price:</strong><span class="price">₦10000</span>
+                        <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                    </div>
+                </div>
+                <div class="each-breakfast">
+                    <div class="breakfast-image">
+                        <img src="images/b5a08105-d1a3-40e5-8184-d2e6c758571d.jpeg" alt="" class="images">
+                    </div>
+                    <!-- <h4 class="food-name"> Rice</h4 > -->
+                    <h4 class="food-description">Beans and Plantain</h4>
+                    <div class="price-section"> 
+                        <strong>Price:</strong><span class="price">₦7000</span>
+                        <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                    </div>
+                </div>
+                <div class="each-breakfast">
+                    <div class="breakfast-image">
+                        <img src="images/122949bf-f335-46c6-9a82-0b933f4fbe24.jpeg" alt="" class="images">
+                    </div>
+                    <!-- <h4 class="food-name"> Rice</h4 > -->
+                    <h4 class="food-description">Spaghetti and Eggs</h4>
+                    <div class="price-section"> 
+                        <strong>Price:</strong><span class="price">₦7000</span>
+                        <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                    </div>
+                </div>
+                <div class="each-breakfast">
+                    <div class="breakfast-image">
+                        <img src="images/87747c1d-9125-4ca4-b4ad-074d3254e048.jpeg" alt="" class="images">
+                    </div>
+                    <!-- <h4 class="food-name"> Rice</h4 > -->
+                    <h4 class="food-description">Okro Soup with Semovita</h4>
+                    <div class="price-section"> 
+                        <strong>Price:</strong><span class="price">₦7000</span>
+                        <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                    </div>
+                </div>
+                <div class="each-breakfast">
+                    <div class="breakfast-image">
+                        <img src="images/34248a70-a7fd-4939-8b02-9c1c33c16fbc.jpeg" alt="" class="images">
+                    </div>
+                    <!-- <h4 class="food-name"> Rice</h4 > -->
+                    <h4 class="food-description">White Rice and Fish Stew</h4>
+                    <div class="price-section"> 
+                        <strong>Price:</strong><span class="price">₦5000</span>
+                        <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                    </div>
+                </div>
+                <div class="each-breakfast">
+                    <div class="breakfast-image">
+                        <img src="images/96a44fa6-43be-4f93-a4a1-70a28894b833.jpeg" alt="" class="images">
+                    </div>
+                    <!-- <h4 class="food-name"> Rice</h4 > -->
+                    <h4 class="food-description">Potato and Chicken</h4>
+                    <div class="price-section"> 
+                        <strong>Price:</strong><span class="price">₦5000</span>
+                        <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                    </div>
+                </div>
+                <div class="each-breakfast">
+                    <div class="breakfast-image">
+                        <img src="images/49c24165-b32b-4ced-ae09-949d6b204f2b.jpeg" alt="" class="images">
+                    </div>
+                    <!-- <h4 class="food-name"> Rice</h4 > -->
+                    <h4 class="food-description">Beefs</h4>
+                    <div class="price-section"> 
+                        <strong>Price:</strong><span class="price">₦3000</span>
+                        <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                    </div>
+                </div>
+                <div class="each-breakfast">
+                    <div class="breakfast-image">
+                        <img src="images/55f9756a-1eae-43da-93d0-b9a8c117ee89.jpeg" alt="" class="images">
+                    </div>
+                    <!-- <h4 class="food-name"> Rice</h4 > -->
+                    <h4 class="food-description">Spaghetti and Eggs</h4>
+                    <div class="price-section"> 
+                        <strong>Price:</strong><span class="price">₦7000</span>
+                        <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                    </div>
+                </div>
+            </div>
+
+            <p>Drinks</p>
+               <div class="breakfast-foods">
+                <div class="each-breakfast">
+                    <div class="breakfast-image">
+                        <img src="images/3c52a0dc-498c-4725-98db-6cfc1afae9b9.jpeg" alt="" class="images">
+                    </div>
+                    <!-- <h4 class="food-name"> Rice</h4 > -->
+                    <h4 class="food-description">Chilled Soft drinks</h4>
+                    <div class="price-section"> 
+                        <strong>Price:</strong><span class="price">₦1000</span>
+                        <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                    </div>
+                </div>
+                <div class="each-breakfast">
+                    <div class="breakfast-image">
+                        <img src="images/99ea3795-f566-4291-b984-ae35afa0292f.jpeg" alt="" class="images">
+                    </div>
+                    <!-- <h4 class="food-name"> Rice</h4 > -->
+                    <h4 class="food-description">Chilled drink with lime</h4>
+                    <div class="price-section"> 
+                        <strong>Price:</strong><span class="price">₦2000</span>
+                        <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                    </div>
+                </div>
+                <div class="each-breakfast">
+                    <div class="breakfast-image">
+                        <img src="images/5194a72e-3176-4d95-a9c0-603171a151d9.jpeg" alt="" class="images">
+                    </div>
+                    <!-- <h4 class="food-name"> Rice</h4 > -->
+                    <h4 class="food-description">strawbery Drink</h4>
+                    <div class="price-section"> 
+                        <strong>Price:</strong><span class="price">₦3000</span>
+                        <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                    </div>
+                </div>
+                <div class="each-breakfast">
+                    <div class="breakfast-image">
+                        <img src="images/05362b68-6698-42fd-a945-7a5878018fb7.jpeg" alt="" class="images">
+                    </div>
+                    <!-- <h4 class="food-name"> Rice</h4 > -->
+                    <h4 class="food-description">Chilled Drink with Lemon</h4>
+                    <div class="price-section"> 
+                        <strong>Price:</strong><span class="price">₦4500</span>
+                        <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                    </div>
+                </div>
+                <div class="each-breakfast">
+                    <div class="breakfast-image">
+                        <img src="images/Coca Cola 🥃.jpeg" alt="" class="images">
+                    </div>
+                    <!-- <h4 class="food-name"> Rice</h4 > -->
+                    <h4 class="food-description">Coca Cola</h4>
+                    <div class="price-section"> 
+                        <strong>Price:</strong><span class="price">₦1000</span>
+                        <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                    </div>
+                </div>
+                <div class="each-breakfast">
+                    <div class="breakfast-image">
+                        <img src="images/f0bd48e7-d789-4fe2-8a4e-713a64288577.jpeg" alt="" class="images">
+                    </div>
+                    <!-- <h4 class="food-name"> Rice</h4 > -->
+                    <h4 class="food-description">Lemon Drink</h4>
+                    <div class="price-section"> 
+                        <strong>Price:</strong><span class="price">₦3000</span>
+                        <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                    </div>
+                </div>
+               
+            </div>
+
+            <p>Dessert</p>
+               <div class="breakfast-foods">
+                <div class="each-breakfast">
+                    <div class="breakfast-image">
+                        <img src="images/0eb1a984-25d9-4efd-bed2-6e6519271037.jpeg" alt="" class="images">
+                    </div>
+                    <!-- <h4 class="food-name"> Rice</h4 > -->
+                    <h4 class="food-description">  Delicious Dessert </h4>
+                    <div class="price-section"> 
+                        <strong>Price:</strong><span class="price">₦4000</span>
+                        <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                    </div>
+                </div>
+                <div class="each-breakfast">
+                    <div class="breakfast-image">
+                        <img src="images/9af6238f-4392-4fde-91bb-adfc360934f2.jpeg" alt="" class="images">
+                    </div>
+                    <!-- <h4 class="food-name"> Rice</h4 > -->
+                    <h4 class="food-description">Chocolate Dessert</h4>
+                    <div class="price-section"> 
+                        <strong>Price:</strong><span class="price">₦3000</span>
+                        <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                    </div>
+                </div>
+                <div class="each-breakfast">
+                    <div class="breakfast-image">
+                        <img src="images/Classic Creamy Coleslaw.jpeg" alt="" class="images">
+                    </div>
+                    <!-- <h4 class="food-name"> Rice</h4 > -->
+                    <h4 class="food-description">Classic Creamy Colleslaw</h4>
+                    <div class="price-section"> 
+                        <strong>Price:</strong><span class="price">₦4500</span>
+                        <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                    </div>
+                </div>
+                <div class="each-breakfast">
+                    <div class="breakfast-image">
+                        <img src="images/f73adcb7-554e-42c4-b31f-57a1794f701a.jpeg" alt="" class="images">
+                    </div>
+                    <!-- <h4 class="food-name"> Rice</h4 > -->
+                    <h4 class="food-description">Chocolate Dessert</h4>
+                    <div class="price-section"> 
+                        <strong>Price:</strong><span class="price">₦3000</span>
+                        <button class="add-btn"><i class="fa fa-cart-plus"></i>Add to Cart </button>
+                    </div>
+                </div>
+                
+            </div>
+        
+    </section>
+     <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>Dumnamene Fyneface</h3>
+                        <p class="full">Full Stack Web Developer crafting modern, responsive websites for real impact.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#skills">Skills</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Follow Me</h4>
+                        <div class="footer-social">
+                            <a href="#"><i style="color: #f9c74f;" class="fa fa-instagram"></i></a>
+                            <a href="#"><i style="color: #f9c74f;" class="fa fa-facebook"></i></a>
+                            <a href="#"><i style="color: #f9c74f;" class="fa fa-twitter"></i></a>
+                            <a href="https://github.com/delight15"><i style="color: #f9c74f;" class="fa fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Contact</h4>
+                        <p class="full">Email: dumnamenefyneface@gmail.com</p>
+                        <p class="full">Phone: +234 814 562 8461</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p class="full" style="color: white; font-size: 1.3rem;text-align: center;">&copy; 2024 Dumnamene Fyneface. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+</body>
+<script>
+        let navlinks = document.getElementById('nav-links');
+    const navbar = document.querySelector('.navbar');
+
+    function shownavlink(){
+        navlinks.classList.toggle('show');
+        document.body.classList.toggle('nav-open');
+    }
+    function closenavlink(){
+        navlinks.classList.remove('show');
+        document.body.classList.remove('nav-open');
+    }
+
+    function updateNavbarOnScroll() {
+        const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        const threshold = window.innerWidth <= 700 ? 1 : 10;
+        if (scrollPercent >= threshold) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    }
+
+    const cartButtons = document.querySelectorAll(".add-btn");
+
+    const cartNumber = document.getElementById("cart-number");
+
+    
+    function updateCartNumber() {
+        
+        
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+        if(cartNumber){
+            cartNumber.innerText = cart.length;
+        }
+        
+    }
+    
+    window.addEventListener("storage", function(){
+        updateCartNumber();
+    });
+
+    window.addEventListener("storage", function (){
+        updateCartNumber();
+    });
+
+
+
+// SHOW NUMBER WHEN PAGE LOADS
+    updateCartNumber();
+
+    cartButtons.forEach(button => {
+
+    button.addEventListener("click", function () {
+
+        // get the product container
+        const product = button.closest(".each-breakfast");
+
+        // get details
+        const image = product.querySelector(".images").src;
+
+        const name = product.querySelector(".food-description").innerText;
+
+        const price = product.querySelector(".price").innerText;
+
+        //  const newprice = parseFloat(price.replace("₦", ""));
+
+        // product object
+        const item = {
+            image,
+            name,
+            price
+        };
+
+        // get cart
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        // add item
+        cart.push(item);
+
+        // save
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        // update number
+        updateCartNumber();
+
+        alert("Added To Cart");
+
+    });
+
+});
+  
+
+
+    window.addEventListener('scroll', updateNavbarOnScroll);
+    window.addEventListener('resize', updateNavbarOnScroll);
+    updateNavbarOnScroll();
+</script>
+</html>

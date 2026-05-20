@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Your Profile</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="shortcut icon" href="images/OOAD5V0.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css"> -->
+</head>
+<body>
+
+<div class="dashboard-container">
+    
+    <aside class="sidebar">
+        <div class="sidebar-brand-wrapper">
+            <div class="sidebar-logo">
+                <img src="images/OOAD5V0.jpg" alt="Restaurant Logo" class="brand-logo-img">
+                <div class="brand-text-group">
+                    <span class="brand-main">MY RESTAURANT</span>
+                    <span class="brand-sub">Good Food</span>
+                </div>
+            </div>
+            
+            <button onclick="logout()" class="btn-logout mobile-logout-btn" title="Log Out">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+            </button>
+        </div>
+
+        <nav class="sidebar-menu">
+            <a href="index.html" class="menu-item"><i class="fa-solid fa-home"></i>Home</a>
+            <a href="menu.html" class="menu-item"><i class="fa-solid fa-cutlery"></i>Menu</a>
+            <a href="contact.html" class="menu-item"><i class="fa-solid fa-address-card"></i>Contact</a>
+            <!-- <a href="profile.html" class="menu-item"><i class="fa-solid fa-user"></i> Profile Settings</a> -->
+
+            <a href="#" class="menu-item active" ><i class="fa-solid fa-user"></i> Profile Settings</a>
+            <a href="orders.html" class="menu-item"><i class="fa-solid fa-history"></i> Order History</a>
+            <!-- <a href="#" class="menu-item"><i class="fa-solid fa-heart"></i> Favorites</a>
+            <a href="#" class="menu-item"><i class="fa-solid fa-wallet"></i> Payment Methods</a> -->
+        </nav>
+        <div class="sidebar-footer">
+            <button onclick="logout()" class="btn-logout"><i class="fa-solid fa-right-from-bracket"></i> Log Out</button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        
+        <header class="profile-header-card">
+            <div class="user-avatar-wrapper">
+                <div id="avatarBadge" class="avatar-circle">U</div>
+            </div>
+            <div class="user-meta">
+                <h1 id="greetingName">Welcome Back!</h1>
+                <p id="userSubEmail"><i class="fa fa-envelope" aria-hidden="true"></i> loading...</p>
+                <span class="status-badge"><i class="fa fa-check-circle" aria-hidden="true"></i> Verified Member</span>
+            </div>
+        </header>
+
+        <section class="form-sections-grid">
+            
+            <div class="form-card">
+                <div class="card-title">
+                    <i class="fa fa-id-card"></i>
+                    <h3>Personal Information</h3>
+                </div>
+                
+                <div class="input-stack">
+                    <div class="input-field-group">
+                        <label for="name">Full Name</label>
+                        <div class="input-with-icon">
+                            <i class="fa fa-user"></i>
+                            <input id="name" type="text" placeholder="Enter full name">
+                        </div>
+                    </div>
+
+                    <div class="input-field-group">
+                        <label for="email">Account Email</label>
+                        <div class="input-with-icon disabled-group">
+                            <i class="fa fa-envelope"></i>
+                            <input id="email" type="text" disabled>
+                        </div>
+                    </div>
+
+                    <div class="input-field-group">
+                        <label for="phone">Phone Number</label>
+                        <div class="input-with-icon">
+                            <i class="fa fa-phone"></i>
+                            <input id="phone" type="text" placeholder="Enter phone number">
+                        </div>
+                    </div>
+
+                    <div class="input-field-group">
+                        <label for="password">Password</label>
+                        <div class="input-with-icon">
+                            <i class="fa fa-lock"></i>
+                            <input id="password" type="password" placeholder="Enter password">
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="saveProfile()" class="btn-primary">
+                    <i class="fa-regular fa-floppy-disk"></i> Save Changes
+                </button>
+            </div>
+
+            <div class="form-card">
+                <div class="card-title">
+                    <i class="fa fa-location-dot"></i>
+                    <h3>Delivery Addresses</h3>
+                </div>
+                
+                <div class="input-stack">
+                    <div class="grid-subfields">
+                        <div class="input-field-group">
+                            <label for="city">City</label>
+                            <input id="city" type="text" placeholder="City">
+                        </div>
+                        <div class="input-field-group">
+                            <label for="state">State</label>
+                            <input id="state" type="text" placeholder="State">
+                        </div>
+                    </div>
+
+                    <div class="input-field-group">
+                        <label for="country">Country</label>
+                        <input id="country" type="text" placeholder="Country">
+                    </div>
+
+                    <div class="input-field-group">
+                        <label for="address">Full Delivery Street Address</label>
+                        <textarea id="address" rows="3" placeholder="No delivery address configured yet. Street addresses update automatically during ordering checkout loops."></textarea>
+                    </div>
+                </div>
+
+                <button onclick="saveAddress()" class="btn-primary btn-accent">
+                    <i class="fa fa-map-location-dot"></i> Update Address
+                </button>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+ <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>Dumnamene Fyneface</h3>
+                        <p class="full">Full Stack Web Developer crafting modern, responsive websites for real impact.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#skills">Skills</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Follow Me</h4>
+                        <div class="footer-social">
+                            <a href="#"><i style="color: #f9c74f;" class="fa fa-instagram"></i></a>
+                            <a href="#"><i style="color: #f9c74f;" class="fa fa-facebook"></i></a>
+                            <a href="#"><i style="color: #f9c74f;" class="fa fa-twitter"></i></a>
+                            <a href="https://github.com/delight15"><i style="color: #f9c74f;" class="fa fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Contact</h4>
+                        <p class="full">Email: dumnamenefyneface@gmail.com</p>
+                        <p class="full">Phone: +234 814 562 8461</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p class="full" style="color: white; font-size: 1rem;text-align: center;">&copy; 2024 Dumnamene Fyneface. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+<script>
+const user = JSON.parse(localStorage.getItem("currentUser"));
+
+if(!user){
+    window.location.href = "login.html";
+}
+
+document.getElementById("name").value = user.fullname || "";
+document.getElementById("email").value = user.email || "";
+document.getElementById("phone").value = user.phone || "";
+document.getElementById("password").value = user.password || "";
+
+document.getElementById("city").value = user.city || "";
+document.getElementById("state").value = user.state || "";
+document.getElementById("country").value = user.country || "";
+document.getElementById("address").value = user.address || "";
+
+if(user.fullname) {
+    document.getElementById("greetingName").innerText = user.fullname;
+    document.getElementById("avatarBadge").innerText = user.fullname.charAt(0).toUpperCase();
+}
+if(user.email) {
+    document.getElementById("userSubEmail").innerHTML = `<i class="fa fa-envelope"></i> ${user.email}`;
+}
+
+function saveProfile(){
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+    
+    const updatedUser = {
+        ...user,
+        fullname: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        password: document.getElementById("password").value
+    };
+
+    const index = users.findIndex(u => u.email === user.email);
+    if(index !== -1) {
+        users[index] = updatedUser;
+    }
+
+    localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem("currentUser", JSON.stringify(updatedUser));
+
+    document.getElementById("greetingName").innerText = updatedUser.fullname;
+    document.getElementById("avatarBadge").innerText = updatedUser.fullname.charAt(0).toUpperCase();
+
+    alert("Profile updated successfully!");
+}
+
+function saveAddress(){
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const updatedUser = {
+        ...user,
+        city: document.getElementById("city").value,
+        state: document.getElementById("state").value,
+        country: document.getElementById("country").value,
+        address: document.getElementById("address").value
+    };
+
+    const index = users.findIndex(u => u.email === user.email);
+    if(index !== -1) {
+        users[index] = updatedUser;
+    }
+
+    localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem("currentUser", JSON.stringify(updatedUser));
+
+    alert("Address updated successfully!");
+}
+
+function logout() {
+    localStorage.removeItem("currentUser");
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

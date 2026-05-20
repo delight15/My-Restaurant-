@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="contact.css">
+    <!-- <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css"> -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- <link rel="stylesheet" href="menu.css"> -->
+    <link rel="shortcut icon" href="images/OOAD5V0.jpg">
+</head>
+<body>
+
+      <header class="navbar">
+            <div class="logo">
+                <img src="images/OOAD5V0.jpg" alt="Restaurant logo">
+            </div>
+            <nav class="nav-links" id="nav-links">
+                <i id="close" class="fa fa-times fa-2x" aria-hidden="true" onclick="closenavlink()"></i>
+                <ul>
+                    <div class="responsive">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="contact.html" class="active">Contact</a></li>
+                    </div>
+                </ul>
+            </nav>
+            <ul class="other-nav" >
+               <li><a href="cart.html"><i style="color: white;" class="fa-solid fa-cart-shopping" aria-hidden="true"><sup id="cart-number"></sup></i></a></li>
+               <li><a href="profile.html"><i style="color: white;" class="fa-solid fa-user" aria-hidden="true"></i></a></li>
+                <!-- <li><a href="search"><i style="color: white;" class="fa-solid fa-search" aria-hidden="true"></i></a></li> -->
+                <i id="open" class="fa-solid fa-bars" aria-hidden="true" onclick="shownavlink()"></i>
+            </ul>
+        </header>
+
+        <div id="overlay2"></div>
+        <section class="contact-section">
+            <div class="contact-container">
+                <div class="back-icon">
+                    <i class="fa fa-arrow-left" onclick="windows_history()"></i>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-info">
+                        <p class="section-subtitle" style="color: black; font-weight: bold; font-size: 2.3rem; margin-bottom: 10px;">Contact Us With This Form</p><br>
+                        <h1 class="section-heading" style="margin-bottom: 10px;">Let us know what you want</h1>
+                        <p class="contact-text" style="font-size: 1.4rem;text-align: left; margin: 0; color: black;">We are always ready to deliver to our lovely customers,You can email us or call us for faster response. </p>
+
+                        <div class="info-list">
+                            <div class="info-item"><i class="fa fa-map-marker"></i><span style="color: black;">Port Harcourt City, Nigeria</span></div>
+                            <div class="info-item"><i class="fa fa-envelope"></i><span style="color: rgb(0, 0, 0);">dumnamenefyneface@gmail.com</span></div>
+                            <div class="info-item"><i class="fa fa-phone"></i><span style="color: rgb(0, 0, 0);">+234 814 562 8461</span></div>
+                        </div>
+
+                        <div class="contact-social">
+                            <a href="#"><i style="color: white;" class="fa fa-instagram"></i></a>
+                            <a href="#"><i style="color: white;" class="fa fa-facebook"></i></a>
+                            <a href="#"><i style="color: white;" class="fa fa-twitter"></i></a>
+                            <a href="#"><i style="color: white;" class="fa fa-github"></i></a>
+                        </div>
+                    </div>
+
+                    <form class="contact-form" action="#" method="post">
+                        <div class="input-group">
+                            <label for="name">Name</label>
+                            <input id="name" type="text" placeholder="Your name" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="email">Email</label>
+                            <input id="email" type="email" placeholder="Your email" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" placeholder="Describe the site you want" required></textarea>
+                        </div>
+                        <button class="btn" type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>Dumnamene Fyneface</h3>
+                        <p>Full Stack Web Developer crafting modern, responsive websites for real impact.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#skills">Skills</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Follow Me</h4>
+                        <div class="footer-social">
+                            <a href="#"><i style="color: #f9c74f;" class="fa fa-instagram"></i></a>
+                            <a href="#"><i style="color: #f9c74f;" class="fa fa-facebook"></i></a>
+                            <a href="#"><i style="color: #f9c74f;" class="fa fa-twitter"></i></a>
+                            <a href="#"><i style="color: #f9c74f;" class="fa fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Contact</h4>
+                        <p>Email: dumnamenefyneface@gmail.com</p>
+                        <p>Phone: +234 814 562 8461</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p style="color: white;">&copy; 2024 Dumnamene Fyneface. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+</body>
+<script>
+    let navlinks = document.getElementById('nav-links');
+    const navbar = document.querySelector('.navbar');
+
+    function shownavlink(){
+        navlinks.classList.toggle('show');
+        document.body.classList.toggle('nav-open');
+    }
+    function closenavlink(){
+        navlinks.classList.remove('show');
+        document.body.classList.remove('nav-open');
+    }
+
+    function windows_history(){
+        window.history.back()  
+    }
+
+    function updateCartNumber() {
+
+        const cartNumber = document.getElementById("cart-number");
+        
+        
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+        if(cartNumber){
+            cartNumber.innerText = cart.length;
+        }
+        
+    }
+    
+    window.addEventListener("storage", function(){
+        updateCartNumber();
+    });
+
+    window.addEventListener("storage", function (){
+        updateCartNumber();
+    });
+    updateCartNumber();
+</script>
+</html>

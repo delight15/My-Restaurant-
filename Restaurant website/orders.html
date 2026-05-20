@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - My Orders</title>
+    <link rel="stylesheet" href="orders.css">
+    <link rel="shortcut icon" href="images/OOAD5V0.jpg">
+    <!-- <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css"> -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
+</head>
+<body>
+
+<div class="dashboard-container">
+    
+    <aside class="sidebar">
+        <div class="sidebar-brand-wrapper">
+            <div class="sidebar-logo">
+                <img src="images/OOAD5V0.jpg" alt="Restaurant Logo" class="brand-logo-img">
+                <div class="brand-text-group">
+                    <span class="brand-main">RESTAURANT</span>
+                    <span class="brand-sub">Good Food</span>
+                </div>
+            </div>
+            
+            <button onclick="logout()" class="btn-logout mobile-logout-btn" title="Log Out">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </button>
+        </div>
+
+        <nav class="sidebar-menu">
+             <a href="index.html" class="menu-item"><i class="fa-solid fa-home"></i>Home</a>
+            <a href="menu.html" class="menu-item"><i class="fa-solid fa-cutlery"></i>Menu</a>
+            <a href="contact.html" class="menu-item"><i class="fa-solid fa-address-card"></i>Contact</a>
+            <a href="profile.html" class="menu-item"><i class="fa-solid fa-user"></i> Profile Settings</a>
+            <a href="orders.html" class="menu-item active"><i class="fa-solid fa-history"></i> Order History</a>
+            <!-- <a href="#" class="menu-item"><i class="fa-solid fa-heart"></i> Favorites</a>
+            <a href="#" class="menu-item"><i class="fa-solid fa-wallet"></i> Payment Methods</a> -->
+        </nav>
+        <div class="sidebar-footer">
+            <button onclick="logout()" class="btn-logout"><i class="fa-solid fa-right-from-bracket"></i> Log Out</button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        
+        <header class="page-title-area">
+            <div>
+                <h1>Order History</h1>
+                <p class="subtitle-text">Manage and track your recent meals and deliveries</p>
+            </div>
+            <div class="summary-counter">
+                <span id="order-count-badge">0</span> Orders Placed
+            </div>
+        </header>
+
+        <section class="orders-grid-wrapper" id="orders-container"></section>
+
+    </main>
+
+</div>
+
+ <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>Dumnamene Fyneface</h3>
+                        <p class="full">Full Stack Web Developer crafting modern, responsive websites for real impact.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#skills">Skills</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Follow Me</h4>
+                        <div class="footer-social">
+                            <a href="#"><i style="color: #f9c74f;" class="fa fa-instagram"></i></a>
+                            <a href="#"><i style="color: #f9c74f;" class="fa fa-facebook"></i></a>
+                            <a href="#"><i style="color: #f9c74f;" class="fa fa-twitter"></i></a>
+                            <a href="https://github.com/delight15"><i style="color: #f9c74f;" class="fa fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Contact</h4>
+                        <p class="full">Email: dumnamenefyneface@gmail.com</p>
+                        <p class="full">Phone: +234 814 562 8461</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p class="full" style="color: white; font-size: 1rem;text-align: center;">&copy; 2024 Dumnamene Fyneface. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+<script>
+// Authentication check loop
+const user = JSON.parse(localStorage.getItem("currentUser"));
+if(!user){
+    window.location.href = "login.html";
+}
+
+// Simulated mock database retrieval logic matching your architecture
+const orders = JSON.parse(localStorage.getItem("orders")) || [];
+const container = document.getElementById("orders-container");
+document.getElementById("order-count-badge").innerText = orders.length;
+
+if(orders.length === 0){
+    container.innerHTML = `
+        <div class="empty-orders-state">
+            <i class="fa-solid fa-utensils"></i>
+            <h3>No orders yet</h3>
+            <p>Hungry? Explore our delicious menu items and place your first order!</p>
+            <a href="menu.html" class="btn-shop-now">View Our Menu</a>
+        </div>
+    `;
+} else {
+    // Array order array inversion matching reverse timeline placement
+    [...orders].reverse().forEach(order => {
+        const orderBox = document.createElement("div");
+        orderBox.classList.add("order-card");
+
+        // Dynamic helper status mapping loops for realistic mock tracking simulations
+        const statuses = ["Pending", "Preparing", "In Transit", "Delivered"];
+        // Pick a status pseudo-randomly tied to Order ID or default safely to 'Delivered'
+        const globalStatus = statuses[order.id % statuses.length] || "Delivered";
+        
+        let statusBadgeClass = globalStatus.toLowerCase().replace(" ", "-");
+
+        let itemsHTML = "";
+
+        order.items.forEach((item, index) => {
+            // Give individual products standalone lifecycle labels matching global tracking parameters
+            const itemStatus = index === 0 ? globalStatus : "Delivered";
+            let itemBadgeClass = itemStatus.toLowerCase().replace(" ", "-");
+
+            itemsHTML += `
+                <div class="order-item">
+                    <img src="${item.image || 'images/image_32bdcf.jpg'}" alt="${item.name}" onerror="this.src='images/image_32bdcf.jpg'">
+                    <div class="item-details">
+                        <h4>${item.name}</h4>
+                        <p class="item-meta">Quantity: <strong>${item.quantity}</strong> • Price: <strong>${item.price}</strong></p>
+                    </div>
+                    <div class="item-status-wrapper">
+                        <span class="product-status-tag tag-${itemBadgeClass}">${itemStatus}</span>
+                    </div>
+                </div>
+            `;
+        });
+
+        orderBox.innerHTML = `
+            <div class="order-header">
+                <div class="header-meta-group">
+                    <div class="order-id-block">
+                        <span class="label-heading">ORDER ID</span>
+                        <h3>#${order.id || '0000'}</h3>
+                    </div>
+                    <div class="order-date-block">
+                        <span class="label-heading">DATE PLACED</span>
+                        <p>${order.date || 'Today'}</p>
+                    </div>
+                </div>
+                <div class="header-status-group">
+                    <span class="global-status-banner state-${statusBadgeClass}">
+                        <i class="fa-solid fa-circle"></i> ${globalStatus}
+                    </span>
+                </div>
+            </div>
+
+            <div class="order-body">
+                ${itemsHTML}
+            </div>
+
+            <div class="order-footer">
+                <div class="footer-summary-group">
+                    <span class="total-label">Total Paid Amount</span>
+                    <strong class="total-price-tag">₦${order.total}</strong>
+                </div>
+                <button class="btn-reorder" onclick="alert('Items added back to cart!')">
+                    <i class="fa-solid fa-rotate-right"></i> Reorder
+                </button>
+            </div>
+        `;
+
+        container.appendChild(orderBox);
+    });
+}
+
+function logout() {
+    localStorage.removeItem("currentUser");
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

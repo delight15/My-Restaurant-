@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Create Account</title>
+    <link rel="sshortcut icon" href="images/OOAD5V0.jpg">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="auth-container">
+    
+    <div class="brand-panel">
+        <div class="image-overlay"></div>
+        <div class="brand-content">
+            <h1>CRAVING SOMETHING DELICIOUS?</h1>
+            <h2>Discover local flavors delivered fast.</h2>
+            <p class="testimonial">“The absolute best food experience in town. Ordering takes seconds!” — <span>Foodies Choice</span></p>
+        </div>
+    </div>
+
+    <div class="form-panel">
+        <div class="form-wrapper">
+            
+            <div class="form-header">
+                <h2>Create Your Account</h2>
+                <p class="subtitle">Join us and start ordering</p>
+            </div>
+
+            <div class="social-auth">
+                <button class="btn-social google-btn">
+                    <i class="fa-brands fa-google"></i> Sign up with Google
+                </button>
+                <button class="btn-social apple-btn">
+                    <i class="fa-brands fa-apple"></i> Sign up with Apple
+                </button>
+            </div>
+
+            <div class="divider">
+                <span>or use email</span>
+            </div>
+
+            <div class="grid">
+                <div class="input-group">
+                    <input type="text" id="fullname" placeholder=" " required>
+                    <label for="fullname">Full Name</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" placeholder=" " required>
+                    <label for="email">Email</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" id="phone" placeholder=" " required>
+                    <label for="phone">Phone Number</label>
+                </div>
+                <div class="input-group password-group">
+                    <input type="password" id="password" placeholder=" " required>
+                    <label for="password">Password</label>
+                    <i class="fa-regular fa-eye toggle-password" onclick="togglePassword('password', this)"></i>
+                </div>
+
+                <div class="input-group password-group full-width">
+                    <input type="password" id="confirmPassword" placeholder=" " required>
+                    <label for="confirmPassword">Confirm Password</label>
+                    <i class="fa-regular fa-eye toggle-password" onclick="togglePassword('confirmPassword', this)"></i>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" id="city" placeholder=" " required>
+                    <label for="city">City</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="state" placeholder=" " required>
+                    <label for="state">State</label>
+                </div>
+                
+                <div class="input-group full-width">
+                    <input type="text" id="country" placeholder=" " required>
+                    <label for="country">Country</label>
+                </div>
+            </div>
+
+            <button class="btn-submit" onclick="signup()">Sign Up Free</button>
+
+            <p class="switch">Already have an account? <a href="login.html">Log in</a></p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function togglePassword(inputId, eyeIcon) {
+    const passwordInput = document.getElementById(inputId);
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        eyeIcon.classList.remove("fa-eye");
+        eyeIcon.classList.add("fa-eye-slash");
+    } else {
+        passwordInput.type = "password";
+        eyeIcon.classList.remove("fa-eye-slash");
+        eyeIcon.classList.add("fa-eye");
+    }
+}
+
+function signup(){
+    const passwordValue = document.getElementById("password").value;
+    const confirmPasswordValue = document.getElementById("confirmPassword").value;
+
+    if (passwordValue !== confirmPasswordValue) {
+        alert("Passwords do not match!");
+        return;
+    }
+
+    const user = {
+        fullname: document.getElementById("fullname").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        password: passwordValue,
+        city: document.getElementById("city").value,
+        state: document.getElementById("state").value,
+        country: document.getElementById("country").value,
+        address: "" 
+    };
+
+    if(!user.fullname || !user.email || !user.password){
+        alert("Please fill out the required fields.");
+        return;
+    }
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+    const exists = users.find(u => u.email === user.email);
+
+    if(exists){
+        alert("Email already exists");
+        return;
+    }
+
+    users.push(user);
+    localStorage.setItem("users", JSON.stringify(users));
+    alert("Account created successfully!");
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

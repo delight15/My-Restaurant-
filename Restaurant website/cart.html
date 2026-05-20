@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="cart.css">
+    <link rel="shortcut icon" href="images/OOAD5V0.jpg">
+
+    <style>
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+}
+
+
+
+/* MAIN SECTION */
+
+.cart-section{
+    width:70%;
+    max-width:1200px;
+    margin:40px auto;
+}
+
+
+
+/* HEADER */
+
+.cart-header{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:40px;
+}
+
+.back-icon{
+    width:45px;
+    height:45px;
+
+    background:white;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+
+    cursor:pointer;
+}
+
+.back-icon i{
+    font-size:18px;
+}
+
+.cart-header h1{
+    font-size:35px;
+    font-weight:700;
+}
+
+
+
+/* CART ITEM */
+
+.cart-item{
+    background:white;
+
+    display:flex;
+    gap:25px;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    margin-bottom:25px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+
+
+/* IMAGE */
+
+.cart-item img{
+    width:220px;
+    height:180px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+}
+
+
+
+/* INFO */
+
+.cart-info{
+    flex:1;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+
+
+/* TOP DETAILS */
+
+.top-details{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:10px;
+}
+.price{
+    font-size:24px;
+    font-weight:bold;
+    color:orange;
+
+    display:flex;
+    align-items:center;
+    gap:2px;
+}
+.currency{
+    font-size:20px;
+}
+
+.amount{
+    font-size:24px;
+}
+
+.top-details h2{
+    font-size:28px;
+}
+
+.price{
+    font-size:24px;
+    font-weight:bold;
+    color:orange;
+}
+
+
+
+/* DESCRIPTION */
+
+.desc{
+    color:#666;
+    line-height:1.6;
+    margin-bottom:20px;
+}
+
+
+
+/* CONTROLS */
+
+.bottom-controls{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+
+
+/* QUANTITY */
+
+.quantity{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.quantity button{
+    width:40px;
+    height:40px;
+
+    border:none;
+
+    background: #f9c74f;
+    color:white;
+
+    font-size:20px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.quantity span{
+    font-size:20px;
+    font-weight:bold;
+}
+
+/* REMOVE */
+
+.remove-btn{
+    padding:12px 20px;
+    border:none;
+    background:red;
+    color:white;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+
+
+/* SUMMARY */
+
+.cart-summary{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    margin-top:40px;
+}
+
+.money{
+    display:flex;
+    gap:2px;
+    color: orange;
+    font-weight:bold;
+}
+
+.currency{
+    color:orange;
+}
+
+.amount{
+    color:orange;
+}
+
+
+
+/* ROW */
+
+.summary-row{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:20px;
+    font-size:20px;
+}
+
+.total{
+    font-size:25px;
+    font-weight:bold;
+}
+
+
+
+/* BUTTON */
+
+.checkout-btn{
+    width:100%;
+    padding:18px;
+    border:none;
+    background:#f9c74f;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    border-radius:15px;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+.empty-cart{
+    min-height: 70vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 20px;
+    text-align: center;
+}
+
+.empty-cart-image{
+    width: 220px;
+    max-width: 90%;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+
+.empty-cart h2{
+    font-size: 2rem;
+    color: #222;
+    margin-bottom: 12px;
+}
+
+.empty-cart p{
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.browse-btn{
+    background-color: #f9c74f;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s ease-in-out;
+}
+
+.browse-btn:hover{
+    background-color: #e5b33b;
+}
+
+@media(max-width:900px){
+    .cart-section{
+        width:90%;
+    }
+}
+
+@media(max-width:600px){
+    .cart-item{
+        flex-direction:column;
+    }
+    .cart-item img{
+        width:100%;
+        height:200px;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <section class="cart-section">
+        
+        <div class="cart-header">
+            <div class="back-icon" onclick="window_history()">
+                <i class="fa-solid fa-arrow-left"></i>
+            </div>
+            <h1>Cart</h1>
+        </div>
+
+        <div id="cart-container">
+            </div>
+
+        <div class="cart-summary" id="cart-summary" style="display:none;">
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <div class="money"><span>₦</span><span id="subtotal">0.00</span></div>
+            </div>
+            <div class="summary-row">
+                <span>Delivery fee</span>
+                <div class="money"><span>₦</span><span id="delivery">1000.00</span></div>
+            </div>
+            <hr style="border:1px solid #eee; margin-bottom:20px;">
+            <div class="summary-row total">
+                <span>Total</span>
+                <div class="money"><span>₦</span><span id="total">0.00</span></div>
+            </div>
+
+            <button class="checkout-btn" onclick="checkoutBtn()">Proceed to Checkout</button>
+        </div>
+
+    </section>
+
+    <script>
+function window_history(){
+    window.history.back();
+}
+
+function checkoutBtn(){
+    window.location.href = "checkout.html";
+}
+
+function displayCart() {
+    const cartContainer = document.getElementById("cart-container");
+    const cartSummary = document.getElementById("cart-summary");
+    
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if (cart.length === 0) {
+        cartContainer.innerHTML = `
+            <div class="empty-cart">
+                <img src="images/cart-empty.png" class="empty-cart-image" alt="Empty Cart">
+                <h2>Your Cart is Empty</h2>
+                <p>Looks like you haven't added anything to your cart yet.</p>
+                <a href="menu.html" class="browse-btn">Browse Menu</a>
+            </div>
+        `;
+        cartSummary.style.display = "none";
+        return;
+    }
+
+    cartSummary.style.display = "block";
+    cartContainer.innerHTML = ""; // Clear loader/previous layout
+
+    let subtotal = 0;
+
+    cart.forEach((item, index) => {
+        // Clean up price calculations
+        let cleanPrice = parseFloat(item.price.replace(/[^\d.]/g, '')) || 0;
+        let itemTotal = cleanPrice * item.quantity;
+        subtotal += itemTotal;
+
+        const cartItemHTML = `
+            <div class="cart-item">
+                <img src="${item.image}" alt="${item.name}">
+                <div class="cart-info">
+                    <div>
+                        <div class="top-details">
+                            <h2>${item.name}</h2>
+                            <div class="price">
+                                <span class="currency">₦</span>
+                                <span class="amount">${cleanPrice.toLocaleString()}</span>
+                            </div>
+                        </div>
+                        <p class="desc">Freshly prepared with premium quality ingredients just for you.</p>
+                    </div>
+                    <div class="bottom-controls">
+                        <div class="quantity">
+                            <button onclick="updateQuantity(${index}, -1)">-</button>
+                            <span>${item.quantity}</span>
+                            <button onclick="updateQuantity(${index}, 1)">+</button>
+                        </div>
+                        <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        cartContainer.innerHTML += cartItemHTML;
+    });
+
+    updateSummary(subtotal);
+}
+
+window.updateQuantity = function(index, change) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart[index].quantity += change;
+
+    if (cart[index].quantity > 0) {
+        // limit logic or keep it going
+        localStorage.setItem("cart", JSON.stringify(cart));
+    } else {
+        cart.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+    displayCart();
+}
+
+window.removeItem = function(index) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.splice(index, 1);
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    displayCart(); 
+}
+
+function updateSummary(subtotal) {
+    subtotal = Number(subtotal) || 0;
+    const delivery = 1000;
+    const total = subtotal + delivery;
+
+    document.getElementById("subtotal").innerText = subtotal.toFixed(2);
+    document.getElementById("delivery").innerText = delivery.toFixed(2);
+    document.getElementById("total").innerText = total.toFixed(2);
+}
+    
+displayCart();
+
+function subtotal_total(){
+    const subtotal = document.getElementById("subtotal").innerText
+    const total = document.getElementById("total").innerText
+}
+    </script>
+</body>
+</html>

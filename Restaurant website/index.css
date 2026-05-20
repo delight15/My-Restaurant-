@@ -1,0 +1,562 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, sans-serif;
+  
+    color: #fff;
+}
+
+.background-video{
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.background-video video{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#cart-number{
+    background: #f9c74f;
+    color: #ffffff;
+
+    position: absolute;
+
+    top: -20px;
+    left: -1px;
+    right: 10px;
+
+    width: 22px;
+    height: 22px;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+#open{
+    color: rgb(255, 255, 255);
+    display: none;
+    /* z-index: 3; */
+    /* inset: 0; */
+}
+#close{
+    color: rgb(255, 255, 255);
+    display: none;
+}
+.overlay{
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8));
+    pointer-events: none;
+}
+#overlay2{
+    background: rgba(0,0,0,0.7);
+    inset: 0;
+    z-index: 6;
+    position: fixed;
+    display: none;
+    
+}
+.hero-content{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 24px;
+    z-index: 2;
+}
+.hero-content h1{
+    font-size: clamp(2rem, 4vw, 4.5rem);
+    margin-bottom: 16px;
+    letter-spacing: 0.04em;
+}
+.hero-content p{
+    font-size: clamp(1rem, 1.3vw, 1.25rem);
+    max-width: 720px;
+    margin-bottom: 28px;
+    color: #f1f1f1;
+}
+.hero-button{
+    display: inline-block;
+    padding: 14px 30px;
+    border-radius: 999px;
+    background: #f9c74f;
+    color: #0b0b0b;
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hero-button:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.18);
+}
+.navbar{
+    position: absolute;
+    inset: 0 auto auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 80px;
+    z-index: 3;
+    transition: background 0.5s ease, box-shadow 0.3s ease, padding 0.3s ease;
+}
+.navbar.scrolled{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(11, 11, 11, 0.96);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    padding: 10px 40px;
+    z-index: 20;
+}
+.navbar .logo{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.navbar .logo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    object-position: 50% 50%;
+    display: block;
+}
+.nav-links ul,
+.other-nav{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+.nav-links ul{
+    list-style: none;
+}
+.nav-links li{
+    padding: 0 12px;
+    transition: 0.6s ease;
+}
+.nav-links ul li:hover{
+    transform: translateY(-4px);
+}
+.nav-links a,
+.other-nav a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+}
+.nav-links .responsive li a.active{
+    color: #f9c74f;
+    background: rgba(249,199,79,0.1);
+    border-radius: 8px;
+    padding: 8px 12px;
+}
+.nav-links a:hover,
+.other-nav a:hover{
+    color: #f9c74f;
+}
+.other-nav{
+    list-style: none;
+    gap: 18px;
+    position: relative;
+}
+.other-nav li{
+    list-style: none;
+}
+.other-nav i{
+    font-size: 18px;
+}
+.meals{
+    /* border: 2px solid black; */
+    padding: 20px 80px;
+    margin-top: 150px;
+    
+}
+.meals p{
+    color: #0b0b0b;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+.responsive{
+    display: flex;
+    gap: 20px;
+}
+.foods{
+    /* border: 2px solid blue; */
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    padding: 0;
+}
+.each-foods{
+    /* border: 2px solid brown; */
+    width: 100%;
+    cursor: pointer;
+    min-height: 320px;
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    gap: 0.75rem;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.18);
+    transition: 0.3s ease;
+}
+.each-foods:hover{
+    transform: translateY(-5px);
+}
+.image{
+    width: 100%;
+    height: 230px;
+    border-radius: 20px;
+    min-height: 230px;
+}
+.image img{
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.food-name{
+    display: block;
+    color: black;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.4;
+    padding: 0 1rem;
+    word-break: break-word;
+}
+.addtocart{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 1rem 1rem;
+    flex-wrap: wrap;
+}
+.addtocart .add-btn{
+    margin-left: auto;
+    padding: 8px 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    white-space: nowrap;
+    color: #0b0b0b;
+    background: #f9c74f;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    flex-shrink: 0;
+}
+.addtocart .add-btn:hover{
+    transform: translateY(-1px);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.15);
+}
+.price{
+    color: black;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.footer{
+    background: #000000;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 3rem 2rem 1rem;
+    margin-top: 2rem;
+}
+.footer-container{
+    max-width: 1120px;
+    margin: 0 auto;
+}
+.footer-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+.footer-section{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.footer-section h3{
+    color: #f9c74f;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+.footer-section h4{
+    color: #f9c74f;
+    font-size: 1rem;
+}
+.footer-section p{
+    color: rgb(255, 255, 255);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+.footer-links{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.footer-links a{
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer-links a:hover{
+    color: #66b3ff;
+}
+.footer-social{
+    display: flex;
+    gap: 1rem;
+}
+.footer-social a{
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+.footer-social a:hover{
+    transform: translateY(-3px);
+    background: rgba(102,179,255,0.18);
+}
+.footer-bottom{ 
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    color: #7fb5d3;
+    font-size: 0.9rem;
+}
+@media (max-width: 900px){
+    .footer{
+        padding: 2rem 1rem 1rem;
+    }
+    .footer-content{
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .addtocart{
+        justify-content: center;
+    }
+    .addtocart .add-btn{
+        width: 100%;
+        max-width: 220px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+@media (max-width: 900px) {
+    .foods{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .food-name{
+        text-align: center;
+    }
+}
+@media (max-width: 600px) {
+    
+    .addtocart{
+        justify-content: center;
+    }
+    .addtocart .add-btn{
+        width: 100%;
+        max-width: 220px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+
+
+
+@media (max-width: 830px) {
+    .navbar{
+        flex-wrap: wrap;
+        padding: 5px 30px 5px 10px;
+        gap: 14px;
+    }
+    .meals{
+        padding: 10px 20px;
+    }
+    .nav-links ul{
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .foods{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .nav-links li{
+        padding: 10px 8px;
+    }
+}
+/* ==========================================================================
+   RESPONSIVE MEDIA LAYOUT (TABLETS & SMARTPHONES)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Create breathing room for the navbar elements on mobile */
+    .navbar {
+        padding: 15px 20px;
+        justify-content: space-between;
+        gap: 15px;
+    }
+
+    /* Keep the logo cleanly sized */
+    .logo img {
+        width: 50px;
+        height: 50px;
+    }
+    .meals{
+        padding: 5px 5px;
+    }
+    .foods {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        padding: 10px 10px;
+        gap: 15px; /* Creates identical elegant item breathing margins */
+    }
+
+    .each-foods {
+        width: 100%;
+        margin: 0;
+        padding: 10px; /* Snugs the item borders nicely on smaller screens */
+    }
+
+    /* Transform nav links into a clean full-screen slide down panel */
+    .nav-links {
+        position: fixed; /* Fixed ensures it stays locked over the viewport */
+        top: -100%;
+        left: 0;
+        height: 300px;
+        z-index: 999; /* Higher priority so it sits on top when opened */
+        width: 100%;
+        margin: 0;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.95);
+        border-bottom: 2px solid #f9c74f;
+        transition: top 400ms ease-in-out;
+    }
+
+   .nav-links ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-top: 40px;
+        width: 100%;
+    }
+
+    /* Core Fix: Force the responsive inner container to stack as a vertical column */
+    .nav-links ul .responsive {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px; /* Controls the clean space between your link elements */
+        width: 100%;
+    }
+
+    .nav-links ul li {
+        list-style: none;
+        text-align: center;
+    }
+
+    /* Absolute positioning for the close button inside the mobile tray */
+    #close {
+        display: none;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+        color: #fff;
+        padding: 8px;
+    }
+
+    .nav-links.show {
+        top: 0;
+    }
+
+    .nav-links.show #close {
+        display: block;
+    }
+
+    /* Ensure the search bar layout scales elegantly without overlapping icons */
+    .search {
+        max-width: 280px;
+        width: 100%;
+        margin: 0;
+    }
+
+    .search input {
+        padding: 10px 35px 10px 15px;
+        font-size: 14px;
+    }
+
+    /* Adjust the utility icons wrapper (cart/bars) alignment */
+    .icons {
+        gap: 20px;
+    }
+
+    #open {
+        display: block; /* Shows the hamburger bars icon precisely when needed */
+        cursor: pointer;
+    }
+
+    /* Fix the core food menu grid system so it does not overflow screen bounds */
+ 
+
+    .each-foods {
+        width: 100%; /* Take full width container context */
+        margin: 0 auto;
+    }
+}
+
+/* Extra small devices optimization (450px down) */
+@media (max-width: 450px) {
+    .navbar {
+        padding: 10px;
+        flex-wrap: wrap; /* Allows search bar to cleanly drop to a new line if screen gets too tight */
+    }
+
+    .search {
+        order: 3; /* Places search perfectly underneath logo and icons on tiny screens */
+        max-width: 100%;
+        margin-top: 10px;
+    }
+    .foods{
+        grid-template-columns: 1fr;
+    }
+    .meals{
+        padding: 10px 10px;
+    }
+   
+}

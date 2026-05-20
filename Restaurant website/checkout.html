@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="shortcut icon" href="images/OOAD5V0.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="checkout.css">
+
+    <style>
+        *{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#f5f5f5;
+padding:40px;
+}
+
+.checkout-section{
+display:flex;
+gap:30px;
+align-items:flex-start;
+}
+
+/* LEFT SIDE */
+
+.divide{
+flex:2;
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+/* RIGHT SIDE */
+
+.divide2{
+flex:1;
+position:sticky;
+top:20px;
+}
+
+/* HEADER */
+
+.cart-header{
+display:flex;
+align-items:center;
+gap:15px;
+margin-bottom:20px;
+}
+
+.back-icon{
+width:45px;
+height:45px;
+
+background:white;
+
+border-radius:50%;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+
+cursor:pointer;
+}
+
+.back-icon i{
+font-size:18px;
+color: black;
+}
+
+.cart-header h1{
+font-size:35px;
+font-weight:700;
+}
+
+
+/* FORMS AND REUSABLES */
+
+.card{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+}
+
+.card h2{
+font-size:22px;
+margin-bottom:20px;
+color:#222;
+border-bottom:2px solid #f5f5f5;
+padding-bottom:10px;
+}
+
+.form-group{
+display:flex;
+gap:20px;
+margin-bottom:20px;
+}
+
+.input-box{
+flex:1;
+display:flex;
+flex-direction:column;
+gap:8px;
+}
+
+.input-box label{
+font-size:14px;
+font-weight:bold;
+color:#555;
+}
+
+.input-box input, .input-box select{
+padding:14px;
+border:1.5px solid #ddd;
+border-radius:10px;
+font-size:16px;
+outline:none;
+background:#fff;
+}
+
+.input-box input:focus, .input-box select:focus{
+border-color:orange;
+}
+
+
+/* ORDER SUMMARY RIGHT CARD */
+
+.summary-card{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+}
+
+.summary-card h2{
+font-size:22px;
+margin-bottom:20px;
+color:#222;
+}
+
+.items-list{
+max-height:240px;
+overflow-y:auto;
+margin-bottom:20px;
+padding-right:5px;
+}
+
+/* CUSTOM SCROLLBAR FOR ITEMS LIST */
+.items-list::-webkit-scrollbar {
+width: 6px;
+}
+.items-list::-webkit-scrollbar-track {
+background: #f1f1f1;
+border-radius: 10px;
+}
+.items-list::-webkit-scrollbar-thumb {
+background: #ddd;
+border-radius: 10px;
+}
+.items-list::-webkit-scrollbar-thumb:hover {
+background: #ccc;
+}
+
+.item-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 0;
+border-bottom:1px solid #f5f5f5;
+}
+
+.item-left{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.item-left img{
+width:50px;
+height:50px;
+border-radius:8px;
+object-fit:cover;
+}
+
+.item-details h4{
+font-size:15px;
+color:#222;
+margin-bottom:4px;
+}
+
+.item-details p{
+font-size:13px;
+color:#777;
+}
+
+.item-price{
+font-weight:bold;
+color:#222;
+font-size:15px;
+}
+
+.calc-row{
+display:flex;
+justify-content:space-between;
+font-size:16px;
+color:#555;
+margin-bottom:15px;
+}
+
+.calc-row.total{
+font-size:22px;
+font-weight:bold;
+color:#222;
+margin-top:15px;
+padding-top:15px;
+border-top:2px solid #f5f5f5;
+}
+
+.total-price{
+color:orange;
+}
+
+.btn-pay{
+width:100%;
+padding:16px;
+background:#f9c74f;
+color:white;
+border:none;
+border-radius:12px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+margin-top:10px;
+transition:all 0.2s;
+}
+
+.btn-pay:hover{
+background-color: #e5b33b;
+}
+
+@media(max-width:992px){
+.checkout-section{
+    flex-direction:column;
+}
+.divide2{
+    width:100%;
+    position:static;
+}
+}
+
+@media(max-width:600px){
+body{
+    padding:15px;
+}
+.form-group{
+    flex-direction:column;
+    gap:20px;
+}
+}
+    </style>
+</head>
+<body>
+
+    <div class="cart-header">
+        <div class="back-icon" onclick="window_history()">
+            <i class="fa-solid fa-arrow-left"></i>
+        </div>
+        <h1>Checkout</h1>
+    </div>
+
+    <section class="checkout-section">
+        
+        <div class="divide">
+            
+            <div class="card">
+                <h2>Shipping Address</h2>
+                
+                <div class="form-group">
+                    <div class="input-box">
+                        <label>Full Name</label>
+                        <input type="text" id="fullname" placeholder="John Doe">
+                    </div>
+                    <div class="input-box">
+                        <label>Phone Number</label>
+                        <input type="tel" id="phone" placeholder="+234...">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-box">
+                        <label>Street Address</label>
+                        <input type="text" id="address" placeholder="123 Luxury Estate Layout">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-box">
+                        <label>City</label>
+                        <input type="text" id="city" placeholder="Lekki">
+                    </div>
+                    <div class="input-box">
+                        <label>State</label>
+                        <input type="text" id="state" placeholder="Lagos">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="card">
+                <h2>Payment Method</h2>
+                <div class="form-group">
+                    <div class="input-box">
+                        <label>Select Option</label>
+                        <select id="payment-method">
+                            <option value="Bank Transfer">Bank Transfer</option>
+                            <option value="Card Payment">Card Payment</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="divide2">
+            <div class="summary-card">
+                <h2>Order Summary</h2>
+                
+                <div class="items-list" id="invoiceItems">
+                    </div>
+
+                <div class="calc-row">
+                    <span>Subtotal</span>
+                    <span>₦<span id="subtotal">0.00</span></span>
+                </div>
+                <div class="calc-row">
+                    <span>Delivery Fee</span>
+                    <span>₦<span id="delivery">1,000.00</span></span>
+                </div>
+                
+                <div class="calc-row total">
+                    <span>Total</span>
+                    <span class="total-price">₦<span id="total">0.00</span></span>
+                </div>
+
+                <button class="btn-pay" onclick="processCheckoutFinal()">Proceed to Payment</button>
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+function window_history(){
+    window.history.back();
+}
+
+// Global scope instantiation properties initialization 
+let subtotal = 0;
+const deliveryFee = 1000;
+let total = 0;
+
+function renderInvoiceStructure() {
+    const invoiceContainer = document.getElementById("invoiceItems");
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if(cart.length === 0) {
+        invoiceContainer.innerHTML = "<p style='color:#777; padding:10px 0;'>No items found inside active cart storage.</p>";
+        return;
+    }
+
+    invoiceContainer.innerHTML = "";
+    subtotal = 0;
+
+    cart.forEach(item => {
+        let numericPrice = parseFloat(item.price.replace(/[^\d.]/g, '')) || 0;
+        let rowTotal = numericPrice * item.quantity;
+        subtotal += rowTotal;
+
+        invoiceContainer.innerHTML += `
+            <div class="item-row">
+                <div class="item-left">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="item-details">
+                        <h4>${item.name}</h4>
+                        <p>Qty: ${item.quantity}</p>
+                    </div>
+                </div>
+                <span class="item-price">₦${rowTotal.toLocaleString()}</span>
+            </div>
+        `;
+    });
+
+    total = subtotal + deliveryFee;
+
+    document.getElementById("subtotal").innerText = subtotal.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    document.getElementById("total").innerText = total.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+}
+
+function autoFillProfileData() {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    if(currentUser) {
+        if(currentUser.fullname) document.getElementById("fullname").value = currentUser.fullname;
+        if(currentUser.phone) document.getElementById("phone").value = currentUser.phone;
+        if(currentUser.address) document.getElementById("address").value = currentUser.address;
+        if(currentUser.city) document.getElementById("city").value = currentUser.city;
+        if(currentUser.state) document.getElementById("state").value = currentUser.state;
+    }
+}
+
+// Initial triggers when context window loads
+renderInvoiceStructure();
+autoFillProfileData();
+
+function processCheckoutFinal() {
+    const typedFullname = document.getElementById("fullname").value.trim();
+    const typedPhone = document.getElementById("phone").value.trim();
+    const typedAddress = document.getElementById("address").value.trim();
+    const typedCity = document.getElementById("city").value.trim();
+    const typedState = document.getElementById("state").value.trim();
+
+    if(!typedFullname || !typedPhone || !typedAddress || !typedCity || !typedState) {
+        alert("Please completely fill out all required shipping context fields before proceeding.");
+        return;
+    }
+
+    const checkoutInfo = {
+        fullname: typedFullname,
+        phone: typedPhone,
+        address: typedAddress,
+        city: typedCity,
+        state: typedState,
+        paymentMethod: document.getElementById("payment-method").value,
+        subtotal: subtotal,
+        delivery: deliveryFee,
+        total: total
+    };
+
+    // 1. Save temporary checkout info for payment tracking processing
+    localStorage.setItem("checkoutInfo", JSON.stringify(checkoutInfo));
+
+    // 2. Core Fix: Read current active session and inject the fresh delivery values
+    let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    if (currentUser) {
+        currentUser.address = typedAddress;
+        currentUser.city = typedCity;
+        currentUser.state = typedState;
+        currentUser.fullname = typedFullname;
+        currentUser.phone = typedPhone;
+        
+        // Push changes back to live viewport session storage
+        localStorage.setItem("currentUser", JSON.stringify(currentUser));
+
+        // 3. Keep master database list in sync so it remains persistent on future logins
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+        const userIndex = users.findIndex(u => u.email === currentUser.email);
+        if (userIndex !== -1) {
+            users[userIndex] = currentUser;
+            localStorage.setItem("users", JSON.stringify(users));
+        }
+    }
+
+    // 4. Redirect seamlessly over to payment processing layout canvas
+    window.location.href = "payment.html";
+}
+    </script>
+</html>

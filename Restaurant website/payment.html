@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="payment.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/OOAD5V0.jpg">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <section class="payment-container">
+
+        <!-- LEFT SIDE -->
+
+        <div class="payment-left">
+
+            <div class="payment-card">
+
+                <h2>Select Payment Method</h2>
+
+                <div class="payment-methods">
+
+                    <!-- TRANSFER -->
+
+                    <div class="method-box active" id="transferBox">
+
+                        <div class="method-top">
+
+                            <div class="method-left">
+                                <i class="fa fa-bank"></i>
+
+                                <div>
+                                    <h3>Bank Transfer</h3>
+                                    <p>Transfer to the account below</p>
+                                </div>
+                            </div>
+
+                            <input type="radio" checked>
+
+                        </div>
+
+
+                        <div class="bank-details">
+
+                            <div class="bank-row">
+                                <div>
+                                    <h4>Bank Name</h4>
+                                    <p>MOMO PSB</p>
+                                </div>
+
+                                <div>
+                                    <h4>Account Name</h4>
+                                    <p>DUMNAMENE FYNEFACE</p>
+                                </div>
+                            </div>
+
+                            <div class="bank-row">
+                                <div>
+                                    <h4>Account Number</h4>
+                                    <p id="accountNumber">8145628461</p>
+                                </div>
+                            </div>
+
+                            <button class="copy-btn" onclick="copyAccountNumber()">
+                                Copy Account Number
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CARD PAYMENT -->
+
+                    <div class="method-box" id="cardBox">
+
+                        <div class="method-top">
+
+                            <div class="method-left">
+                                <i class="fa fa-credit-card"></i>
+
+                                <div>
+                                    <h3>Card Payment</h3>
+                                    <p>Pay securely with your debit card</p>
+                                </div>
+                            </div>
+
+                            <input type="radio">
+
+                        </div>
+
+
+                        <div class="card-form" id="cardForm">
+
+                            <input type="text" placeholder="Card Holder Name">
+
+                            <input type="text" placeholder="Card Number">
+
+                            <div class="input-group">
+                                <input type="text" placeholder="MM/YY">
+                                <input type="text" placeholder="CVV">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BILLING ADDRESS -->
+
+            <div class="payment-card">
+
+                <h2>Billing Address</h2>
+
+                <div class="billing-box">
+
+                    <div class="billing-item">
+                        <span class="label">Customer</span>
+                        <p id="customerName"></p>
+                    </div>
+
+                    <div class="billing-item">
+                        <span class="label">Phone</span>
+                        <p id="customerPhone"></p>
+                    </div>
+
+                    <div class="billing-item">
+                        <span class="label">Address</span>
+                        <p id="customerAddress"></p>
+                    </div>
+
+                    <div class="billing-item">
+                        <span class="label">Payment Method</span>
+                        <p id="paymentMethod"></p>
+                    </div>
+
+                 </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+
+        <div class="payment-right">
+
+            <div class="summary-card">
+
+                <h2>Order Summary</h2>
+
+                <div class="summary-row">
+                    <p>Subtotal</p>
+                    <span id="subtotal"></span>
+                </div>
+
+                <div class="summary-row">
+                    <p>Delivery</p>
+                    <span>₦1,000.00</span>
+                </div>
+
+                <div class="summary-row total">
+                    <p >Total</p>
+                    <span id="total"></span>
+                </div>
+
+                <button class="pay-btn" onclick="confirmPayment()">
+                    Confirm Payment
+                </button>
+
+                <div class="payment-actions">
+                    <button class="cancel-btn" onclick="go_to_page()">Cancel</button>
+
+                </div>
+
+            </div>
+
+        </div>
+        
+    </section>
+
+    <!-- SUCCESS MODAL -->
+<div class="success-modal hidden" id="successModal">
+
+    <div class="success-box">
+
+        <i class="fa fa-check-circle success-icon"></i>
+
+        <h2>Payment Successful</h2>
+
+        <p>Your payment has been confirmed successfully.</p>
+
+        <button onclick="goHome()" class="home-btn">
+            Go to your orders
+        </button>
+
+    </div>
+
+</div>
+
+
+</body>
+
+    <script>
+
+        const subtotal = localStorage.getItem("subtotal");
+        const total = localStorage.getItem("total");
+        
+        const newtotal= total.replace(".", "");
+
+          let priceNumber = parseFloat(
+            String(total || 0).replace(/[^\d.]/g, "")
+        );
+          let priceNumbers = parseFloat(
+            String(subtotal || 0).replace(/[^\d.]/g, "")
+        );
+        console.log(priceNumber)
+        document.getElementById('subtotal').innerText = `₦${priceNumbers.toFixed(2)}`
+
+        document.getElementById('total').innerText = `₦${priceNumber.toFixed(2)}`
+
+
+        // const newprice =  console.log(total.replace(".", ""));
+        
+        console.log(typeof(newprice))
+
+
+
+        console.log(total);
+
+        const transferBox = document.getElementById("transferBox");
+        const cardBox = document.getElementById("cardBox");
+        const cardForm = document.getElementById("cardForm");
+
+
+        transferBox.addEventListener("click", () => {
+
+            transferBox.classList.add("active");
+            cardBox.classList.remove("active");
+            cardForm.classList.remove("active");
+
+        });
+
+
+        const checkoutInfo = JSON.parse(localStorage.getItem("checkoutInfo"));
+
+        document.getElementById("customerName").innerText =
+        checkoutInfo.fullname;
+
+        document.getElementById("customerPhone").innerText =
+        checkoutInfo.phone;
+
+        document.getElementById("customerAddress").innerText =
+        `${checkoutInfo.address}, ${checkoutInfo.city}, ${checkoutInfo.state}`;
+
+        document.getElementById("paymentMethod").innerText =
+        checkoutInfo.paymentMethod;
+
+
+
+
+        cardBox.addEventListener("click", () => {
+
+            cardBox.classList.add("active");
+            transferBox.classList.remove("active");
+            cardForm.classList.add("active");
+
+        });
+
+
+        function copyAccountNumber(){
+
+            const accountNumber = document.getElementById("accountNumber").innerText;
+
+            navigator.clipboard.writeText(accountNumber);
+
+            // alert("Account number copied successfully");
+        }
+
+        function go_to_page(){
+            window.location.href = "checkout.html"
+        }
+
+        const checkoutInfos = JSON.parse(localStorage.getItem("checkoutInfo"));
+
+        // your existing DOM filling code here...
+
+        const paymentMethod = checkoutInfo.paymentMethod;
+
+        // get boxes
+        const transferBoxs = document.getElementById("transferBox");
+        const cardBoxs = document.getElementById("cardBox");
+
+        // control visibility
+        if(paymentMethod === "Card Payment"){
+            cardBoxs.classList.remove("hidden");
+            transferBoxs.classList.add("hidden");
+        }
+
+        if(paymentMethod === "Bank Transfer"){
+            transferBoxs.classList.remove("hidden");
+            cardBoxs.classList.add("hidden");
+        }
+
+        function confirmPayment(){
+
+            const modal = document.getElementById('successModal');
+
+            modal.classList.remove("hidden");
+
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const checkoutInfo = JSON.parse(localStorage.getItem("checkoutInfo")) || {};
+
+            const order = {
+                id: Date.now(),
+                customer: checkoutInfo,
+                items: cart,
+                total: checkoutInfo.total,
+                date: new Date().toLocaleString()
+            };
+
+            // get old orders
+            let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+            // add new order
+            orders.push(order);
+
+            // save back
+            localStorage.setItem("orders", JSON.stringify(orders));
+
+            // clear cart
+            localStorage.removeItem("cart");
+
+            // redirect to orders page
+            // window.location.href = "orders.html";
+        }
+
+        function goHome(){
+            window.location.href = "orders.html"; // change if your home page is different
+        }
+
+    </script>
+
+</html>
+
+
+
+
