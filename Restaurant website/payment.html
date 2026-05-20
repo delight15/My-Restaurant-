@@ -87,7 +87,7 @@
                                 </div>
                             </div>
 
-                            <input type="radio">
+                            <input type="radio" checked>
 
                         </div>
 
@@ -212,7 +212,7 @@
         const subtotal = localStorage.getItem("subtotal");
         const total = localStorage.getItem("total");
         
-        const newtotal= total.replace(".", "");
+        // const newtotal= total.replace(".", "");
 
           let priceNumber = parseFloat(
             String(total || 0).replace(/[^\d.]/g, "")
