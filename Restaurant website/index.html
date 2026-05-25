@@ -30,15 +30,32 @@
                         <li><a href="index.html" class="active">Home</a></li>
                         <li><a href="menu.html">Menu</a></li>
                         <li><a href="contact.html">Contact</a></li>
+
+                        <li class="mobile-only-link"><a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a></li>
+                        <li class="mobile-only-link">
+                            <div class="mobile-search-container">
+                                <input type="text" placeholder="Search for food..." class="mobile-search-input">
+                                <i class="fa-solid fa-search mobile-search-icon"></i>
+                            </div>
+                        </li>
+                        <li class="mobile-only-link"><a href="signup.html" class="nav-signup-btn">Sign Up</a></li>
                         <!-- <li><a href="profile.html">Profile</a></li> -->
                     </div>
                 </ul>
             </nav>
             <ul class="other-nav">
-                <li><a href="cart.html"><i class="fa-solid fa-cart-shopping" aria-hidden="true"><sup id="cart-number"></sup></i></a></li>
-                <li><a href="profile.html"><i class="fa-solid fa-user" aria-hidden="true"></i></a></li>
-                <li><a href="#search"><i class="fa-solid fa-search" aria-hidden="true"></i></a></li>
-                <i id="open" class="fa-solid fa-bars" aria-hidden="true" onclick="shownavlink()"></i>
+              <li><a href="cart.html"><i class="fa-solid fa-cart-shopping" aria-hidden="true"><sup id="cart-number"></sup></i></a></li>
+        
+        <li class="desktop-only-link"><a href="profile.html"><i class="fa-solid fa-user"></i></a></li>
+        <li class="desktop-only-link">
+            <div class="search-container">
+                <input type="text" placeholder="Search for food..." class="search-input">
+                <button class="search-trigger-btn"><i class="fa-solid fa-search"></i></button>
+            </div>
+        </li>
+        <li class="desktop-only-link"><a href="signup.html" class="nav-signup-btn">Sign Up</a></li>
+        
+        <i id="open" class="fa-solid fa-bars" aria-hidden="true" onclick="shownavlink()"></i>
             </ul>
         </header>
 
@@ -280,10 +297,10 @@
                     <div class="footer-section">
                         <h4>Follow Me</h4>
                         <div class="footer-social">
-                            <a href="#"><i style="color: #f9c74f;" class="fa fa-instagram"></i></a>
-                            <a href="#"><i style="color: #f9c74f;" class="fa fa-facebook"></i></a>
-                            <a href="#"><i style="color: #f9c74f;" class="fa fa-twitter"></i></a>
-                            <a href="https://github.com/delight15"><i style="color: #f9c74f;" class="fa fa-github"></i></a>
+                            <a href="#"><i style="color: #f9c74f;" class="fab fa-instagram"></i></a>
+                            <a href="#"><i style="color: #f9c74f;" class="fab fa-facebook"></i></a>
+                            <a href="#"><i style="color: #f9c74f;" class="fab fa-twitter"></i></a>
+                            <a href="https://github.com/delight15"><i style="color: #f9c74f;" class="fab fa-github"></i></a>
                         </div>
                     </div>
                     <div class="footer-section">
@@ -300,6 +317,8 @@
 
 </body>
  <script>
+
+  
     let navlinks = document.getElementById('nav-links');
     const navbar = document.querySelector('.navbar');
 
@@ -396,6 +415,17 @@ cartButtons.forEach(button => {
 
 // SHOW NUMBER WHEN PAGE LOADS
 updateCartNumber();
+
+    const user = localStorage.getItem("currentUser");
+    console.log(user);
+
+    // Grab ALL signup buttons using a class instead of an ID
+    const signups = document.querySelectorAll('.nav-signup-btn');
+
+    if (user) {
+        // Loop through both desktop and mobile buttons and hide them
+        signups.forEach(btn => btn.style.display = "none");
+    }
 
 
     window.addEventListener('scroll', updateNavbarOnScroll);

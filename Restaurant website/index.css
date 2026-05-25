@@ -21,6 +21,80 @@ body{
     width: 100%;
     height: 100%;
     object-fit: cover;
+
+}
+.mobile-only-link {
+    display: none !important;
+}
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    padding: 4px;
+    transition: background 0.3s ease;
+}
+
+/* The actual input field - hidden by default via 0 width */
+.search-input {
+    width: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 0.9rem;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
+    padding: 0;
+}
+
+/* The transparent button wrapping the search icon */
+.search-trigger-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+}
+
+/* CORE MAGIC: When clicked/focused, expand the width of the input field smoothly */
+.search-container:focus-within {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(249, 199, 79, 0.5);
+}
+
+.search-container:focus-within .search-input {
+    width: 160px; /* How wide it grows on desktop */
+    padding: 0 12px;
+}
+
+.search-container:focus-within .search-trigger-btn {
+    color: #f9c74f; /* Changes icon color to yellow when open */
+}
+
+/* Base Signup Button Style */
+/*  */
+/* Signup Button Base Styles */
+#nav-signup-btn {
+    background-color: #f9c74f;
+    color: #0b0b0b !important; /* Forces the text to stay dark on the yellow background */
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    display: inline-block;
+}
+
+#nav-signup-btn:hover {
+    background-color: #ffd166 !important; /* Slightly brighter tint on hover */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(249, 199, 79, 0.2);
 }
 #cart-number{
     background: #f9c74f;
@@ -424,11 +498,47 @@ body{
    RESPONSIVE MEDIA LAYOUT (TABLETS & SMARTPHONES)
    ========================================================================== */
 @media (max-width: 768px) {
-    /* Create breathing room for the navbar elements on mobile */
+ 
+    /* Hide the extra icons on the top navbar row */
+    .desktop-only-link {
+        display: none !important;
+    }
+
+    /* Reveal the structured list items inside the mobile menu tray drawer */
+    .mobile-only-link {
+        display: block !important;
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Give the signup button inside the mobile drawer menu proper width alignment */
+    .nav-links #nav-signup-btn {
+        width: auto;
+        padding: 10px 24px;
+        margin-top: 10px;
+    }
+
+    /* Adjust the main mobile header configuration */
     .navbar {
         padding: 15px 20px;
         justify-content: space-between;
+    }
+
+    .other-nav {
+        gap: 20px; /* Perfect breathing margins for just cart and burger icon */
+    }
+    
+    /* Extend height to gracefully adapt for the newly added links */
+    .nav-links {
+        height: 420px; 
+    }
+    
+    .nav-links ul .responsive {
         gap: 15px;
+    }
+    #nav-signup-btn {
+        padding: 6px 12px; /* Shrink button padding slightly so it fits perfectly on mobile rows */
+        font-size: 0.8rem;
     }
 
     /* Keep the logo cleanly sized */
@@ -457,7 +567,7 @@ body{
         position: fixed; /* Fixed ensures it stays locked over the viewport */
         top: -100%;
         left: 0;
-        height: 300px;
+        height: 500px;
         z-index: 999; /* Higher priority so it sits on top when opened */
         width: 100%;
         margin: 0;
@@ -538,13 +648,51 @@ body{
         width: 100%; /* Take full width container context */
         margin: 0 auto;
     }
+   
+    .mobile-search-container {
+        position: relative;
+        width: 90%;
+        margin: 10px auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .mobile-search-input {
+        width: 100%;
+        padding: 12px 40px 12px 18px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 999px;
+        color: #fff;
+        outline: none;
+        font-size: 0.95rem;
+    }
+
+    .mobile-search-input:focus {
+        border-color: #f9c74f;
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .mobile-search-icon {
+        position: absolute;
+        right: 18px;
+        color: rgba(255, 255, 255, 0.6);
+        pointer-events: none;
+    }
 }
+
 
 /* Extra small devices optimization (450px down) */
 @media (max-width: 450px) {
     .navbar {
-        padding: 10px;
+        padding: 10px 15px;
         flex-wrap: wrap; /* Allows search bar to cleanly drop to a new line if screen gets too tight */
+    }
+   
+    
+    /* Ensures everything aligns beautifully on micro-screens */
+    .other-nav {
+        gap: 10px;
     }
 
     .search {
